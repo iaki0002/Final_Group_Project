@@ -2,7 +2,6 @@ package com.example.finalgroupproject.car;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,26 +28,17 @@ import com.example.finalgroupproject.currency.MainActivity_currency;
 import com.example.finalgroupproject.recipe.MainRecipeActivity;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
@@ -83,7 +72,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.ECCSFListView);
         lv.setAdapter(lvAdapter = new LVAdapter());
 
-        // loadFavourites();
+        // loadStationsFromDB();
 
         TextView latitudeTV = findViewById(R.id.ECCSFLatitudeTV);
         TextView longitudeTV = findViewById(R.id.ECCSFLongitudeTV);
@@ -200,7 +189,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
             case R.id.favouritesOverFlowItem:
                 Snackbar.make(latitudeET, R.string.loadFavsStr, 1_000).show();
                 // stationList.clear();
-                loadFavourites();
+                loadStationsFromDB();
                 // Cursor qResults = db.query(false, CarChargerDatabaseOpenHelper.TABLE_NAME,
                 //         new String[]{CarChargerDatabaseOpenHelper.COL_ID, CarChargerDatabaseOpenHelper.COL_LOCATION_TITLE,
                 //                 CarChargerDatabaseOpenHelper.COL_LATITUDE, CarChargerDatabaseOpenHelper.COL_LONGITUDE,
@@ -244,7 +233,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 // } else {
                 //     Snackbar.make(result, "Not in Favourites", Snackbar.LENGTH_SHORT).show();
                 // }
-                loadFavourites();
+                loadStationsFromDB();
             }
         }
     }
@@ -351,9 +340,19 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                                 xpp.next();
                                 String phone = xpp.getText();
                                 stationList.add(new ChargingStation(stationName, lat, lon, phone));
-                                if (++count == 3) {
+                                if (++count == 1) {
+                                    try {
+                                        Thread.sleep(10);
+                                    } catch (InterruptedException ie) {
+                                        Log.e("THREAD ERROR", ie.getMessage() + " ");
+                                    }
                                     publishProgress(75);
                                 } else if (count == 10) {
+                                    try {
+                                        Thread.sleep(10);
+                                    } catch (InterruptedException ie) {
+                                        Log.e("THREAD ERROR", ie.getMessage() + " ");
+                                    }
                                     publishProgress(100);
                                 }
                         }
@@ -423,7 +422,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
     }
 
-    private void loadFavourites() {
+    void loadStationsFromDB() {
         stationList.clear();
         // adds all database entries from the table STATIONS into stationList
         Cursor qResults = db.query(false, CarChargerDatabaseOpenHelper.TABLE_NAME,
