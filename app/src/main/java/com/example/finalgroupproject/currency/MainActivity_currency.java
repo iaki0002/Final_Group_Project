@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
@@ -27,6 +28,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalgroupproject.R;
+import com.example.finalgroupproject.car.CarChargerFinderActivity;
+import com.example.finalgroupproject.main.MainActivity;
+import com.example.finalgroupproject.recipe.MainRecipeActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -80,7 +84,7 @@ public class MainActivity_currency extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_currency);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        // Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
         resultTextView = findViewById(R.id.resultTextView);
@@ -248,12 +252,15 @@ public class MainActivity_currency extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.mainpage:
                 Toast.makeText(this, "Going to the main page", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity_currency.this, MainActivity.class));
                 return true;
             case R.id.car:
                 Toast.makeText(this, "Going to the car charger finder", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity_currency.this, CarChargerFinderActivity.class));
                 return true;
             case R.id.recipe:
                 Toast.makeText(this, "Going to the recipe search engine", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MainActivity_currency.this, MainRecipeActivity.class));
                 return true;
             case R.id.news:
                 Toast.makeText(this, "Going to the news headlines api", Toast.LENGTH_SHORT).show();
