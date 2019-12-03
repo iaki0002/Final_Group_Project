@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/background2"
+    >
+    <Button
+        android:id="@+id/carButton"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/cookButton"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/button2"
+        android:layout_marginEnd="30dp"
+        android:background="@android:color/transparent"
+        />
+
+    <Button
+        android:id="@+id/currencyButton"
+        android:layout_width="110dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/button1"
+        android:layout_marginStart="50dp"
+        android:background="@android:color/transparent"
+        />
+
+    <Button
+        android:id="@+id/newsButton"
+        android:layout_width="100dp"
+        android:layout_height="135dp"
+       android:layout_above="@+id/button3"
+        android:layout_marginStart="28dp"
+        android:background="@android:color/transparent"/>
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="@string/invButton"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_toEndOf="@+id/currencyButton"
+        android:text="@string/invButton"
+        android:visibility="invisible" />
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        android:text="@string/invButton"
+        android:visibility="invisible"/>
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--    <item-->
+<!--        android:id="@+id/menudrop"-->
+<!--        android:icon="@drawable/ic_icon"-->
+<!--        android:title="Menu drop"-->
+<!--        app:showAsAction="ifRoom"/>-->
+
+    <item
+        android:id="@+id/mainpage"
+        android:title="@string/mainpage"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/car"
+        android:title="@string/car"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/recipe"
+        android:title="@string/recipe"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/news"
+        android:title="@string/news"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/about"
+        android:title="@string/about"
+        app:showAsAction="never"/>
+
+</menu>

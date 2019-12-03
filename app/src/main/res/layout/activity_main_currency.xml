@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".currency.MainActivity_currency">
+
+
+    <TextView
+        android:id="@+id/welcomemessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:gravity="center"
+        android:text="@string/welcome"
+        android:textSize="20sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+
+        <EditText
+            android:id="@+id/firstnumber"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:hint="1st number and currency"
+            />
+        <Spinner
+            android:id="@+id/spinnerChooseCountry1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1">
+        <EditText
+            android:id="@+id/secondnumber"
+            android:inputType="number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:gravity="center"
+            android:hint="2nd number and currency"
+            />
+        <Spinner
+            android:id="@+id/spinnerChooseCountry2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            />
+    </LinearLayout>
+
+    <DatePicker android:id="@+id/datePicker"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:datePickerMode="spinner"
+        android:calendarViewShown="false"
+        />
+
+
+
+    <Button
+        android:id="@+id/convertbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Convert!"
+        />
+
+    <Button
+        android:id="@+id/savefavouritebutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Save to favourite"
+        />
+
+    <!--    <ProgressBar-->
+    <!--        android:id="@+id/progressBar"-->
+    <!--        style="?android:progressBarStyleHorizontal"-->
+    <!--        android:visibility="invisible"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:indeterminate="false"-->
+    <!--        android:max="100"-->
+    <!--        android:minHeight="50dp"-->
+    <!--        android:minWidth="200dp"-->
+    <!--        android:progress="1"-->
+    <!--        android:layout_gravity="center"/>-->
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        />
+
+
+</LinearLayout>

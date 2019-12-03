@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    <color name="colorPrimary">#ffc0cb</color>
+    -->
+    <color name="colorPrimary">#0AC2A9</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="colorRecipe">#D7AACF</color>
+    <color name="colorWall">#e5e3e4</color>
+    <color name="background">#ffe6f3</color>
+    <color name="recipeToolbar"> #ff99ff</color>
+
+</resources>

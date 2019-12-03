@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:id="@+id/recipe_detail_fragment"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:context=".recipe.RecipeDetailFragment">
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:text="Close"
+        android:background="@drawable/recipe_round_button"
+        android:id="@+id/recipe_detail_fragment_close_btn"/>
+
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/recipe_detail_fragment_imageview"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/recipe_detail_fragment_title"
+        android:layout_below="@id/recipe_detail_fragment_imageview"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/bottomButton"
+        android:layout_alignParentBottom="true">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save to Favorite"
+            android:layout_weight="1"
+            android:background="@drawable/recipe_round_button2"
+            android:id="@+id/recipe_detail_fragment_favorite_btn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Open Web Page"
+            android:layout_weight="1"
+            android:background="@drawable/recipe_round_button2"
+            android:id="@+id/recipe_detail_fragment_webview_btn"/>
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFlvNameTV"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/ECCSFlvTitleStr"
+        android:layout_marginTop="10sp"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFlvLatitudeTV"
+        android:layout_below="@id/ECCSFlvNameTV"
+        android:text="@string/ECCSFLatitudeStr"
+        android:textSize="12sp"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFlvLongitudeTV"
+        android:layout_below="@id/ECCSFlvLatitudeTV"
+        android:text="@string/ECCSFLongitudeStr"
+        android:textSize="12sp"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFlvPhoneTV"
+        android:layout_below="@id/ECCSFlvLongitudeTV"
+        android:text="@string/ECCSFlvPhoneStr"
+        android:textSize="12sp"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10sp"/>
+
+</RelativeLayout>
+
+
+
+
+

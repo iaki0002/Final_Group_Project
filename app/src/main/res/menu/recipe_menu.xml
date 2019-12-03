@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+<!--    <item-->
+<!--        android:id="@+id/menudrop"-->
+<!--        android:icon="@drawable/ic_icon"-->
+<!--        android:title="Menu drop"-->
+<!--        app:showAsAction="ifRoom"/>-->
+    <item
+        android:id="@+id/mainpage"
+        android:title="@string/mainpage"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/recipe_menu_favorite"
+        android:title="@string/recipe_menu_favorite"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/menu_car"
+        android:icon="@drawable/ic_car"
+        android:title="@string/car"
+        app:showAsAction="always"/>
+   <!--
+    <item
+        android:id="@+id/menu_recipe"
+        android:icon="@drawable/ic_cook"
+        android:title="@string/recipe"
+        app:showAsAction="always"
+        />
+    -->
+    <item
+        android:id="@+id/menu_currency"
+        android:icon="@drawable/ic_currency"
+        android:title="@string/currency"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_news"
+        android:icon="@drawable/ic_news"
+        android:title="@string/news"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/menu_recipe_about"
+        android:icon="@drawable/ic_about"
+        android:title="@string/about"
+        app:showAsAction="always"/>
+
+
+</menu>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/eccsf_fragment_location">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFNameFragTV"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/ECCSFlvTitleStr"
+        android:layout_marginTop="20sp"
+        android:textSize="20sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFLatitudeFragTV"
+        android:layout_below="@id/ECCSFNameFragTV"
+        android:text="@string/ECCSFLatitudeStr"
+        android:textSize="20sp"
+        android:paddingTop="10sp"
+        android:layout_alignParentStart="true"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFLongitudeFragTV"
+        android:layout_below="@id/ECCSFLatitudeFragTV"
+        android:text="@string/ECCSFLongitudeStr"
+        android:textSize="20sp"
+        android:layout_alignParentStart="true"
+        android:paddingTop="10sp"
+        android:gravity="center"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFPhoneFragTV"
+        android:layout_below="@id/ECCSFLongitudeFragTV"
+        android:text="@string/ECCSFlvPhoneStr"
+        android:textSize="20sp"
+        android:layout_alignParentStart="true"
+        android:paddingTop="10sp"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFDirectionsBtn"
+        android:textAlignment="center"
+        android:text="@string/ECCSFlvDirectionsStr"
+        android:textSize="20sp"
+        android:layout_above="@id/ECCSFFavouritesBtn"
+        android:layout_alignStart="@id/ECCSFDeleteBtn"
+        android:layout_alignEnd="@id/ECCSFDeleteBtn"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFFavouritesBtn"
+        android:textAlignment="center"
+        android:layout_alignStart="@id/ECCSFDeleteBtn"
+        android:layout_alignEnd="@id/ECCSFDeleteBtn"
+        android:text="@string/ECCSFlvFavouritesStr"
+        android:layout_above="@id/ECCSFDeleteBtn"
+        android:textSize="20sp"
+        android:layout_centerInParent="true"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ECCSFDeleteBtn"
+        android:text="@string/ECCSFDeleteStr"
+        android:textAlignment="center"
+        android:layout_centerInParent="true"
+        android:textSize="20sp"
+        android:layout_alignParentBottom="true" />
+
+</RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

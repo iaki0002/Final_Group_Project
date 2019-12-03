@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/currencyMenuButton"
+        android:title="@string/ECCSFCurrencyConverterStr"
+        android:icon="@drawable/ic_currency"
+        app:showAsAction="always"
+        android:visible="true"
+        android:orderInCategory="1"/>
+
+    <item
+        android:id="@+id/newsAPIMenuButton"
+        android:title="@string/news"
+        android:icon="@drawable/ic_news"
+        app:showAsAction="always"
+        android:visible="true"
+        android:orderInCategory="2"/>
+
+    <item
+        android:id="@+id/recipeMenuButton"
+        android:title="@string/recipe"
+        android:icon="@drawable/ic_cook"
+        app:showAsAction="always"
+        android:visible="true"
+        android:orderInCategory="3"/>
+
+    <item
+        android:id="@+id/favouritesOverFlowItem"
+        android:title="@string/ECCSFFavouritesStr"
+        app:showAsAction="never"
+        android:orderInCategory="4" />
+
+    <item
+        android:id="@+id/aboutOverFlowItem"
+        android:title="@string/about"
+        app:showAsAction="never"
+        android:orderInCategory="5"/>
+
+</menu>

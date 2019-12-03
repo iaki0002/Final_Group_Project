@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:paddingRight="10dp"
+    android:paddingLeft="10dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:orientation="vertical"
+    tools:context=".recipe.MainRecipeActivity">
+
+
+    <EditText
+        android:id="@+id/recipe_search_edittext"
+        android:labelFor="@id/foodSearchButton"
+        android:inputType="textPersonName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/etFood"/>
+    <!-- android:inputType="textFoodName"
+       -->
+    <Button
+        android:id="@+id/foodSearchButton"
+        android:text="@string/searchFood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/recipe_round_button2"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+    <FrameLayout
+        android:id="@+id/recipe_main_framelayout"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+    </FrameLayout>
+
+    <ListView
+        android:id="@+id/foodListView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="20dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="20dp" />
+    <ProgressBar
+        android:id="@+id/recipe_search_progressbar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </ProgressBar>
+
+
+</LinearLayout>

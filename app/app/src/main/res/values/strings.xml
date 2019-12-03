@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Currency Converter</string>
+    <string name="mainpage">Main page</string>
+    <string name="car">Car charging station finder</string>
+    <string name="recipe">Recipe engine</string>
+    <string name="news">News headlines API</string>
+    <string name="about">About</string>
+
+    <string name="welcome">Welcome to the Currency Converter app</string>
+</resources>
