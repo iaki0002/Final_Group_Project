@@ -26,6 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalgroupproject.R;
+import com.example.finalgroupproject.currency.MainActivity_currency;
+import com.example.finalgroupproject.recipe.MainRecipeActivity;
 import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
@@ -71,7 +73,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_charger_finder);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        // Toolbar toolbar = findViewById(R.id.toolbar);
         // setSupportActionBar(toolbar);
         // getSupportActionBar().setDisplayShowTitleEnabled(false);
 
@@ -103,8 +105,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         findBtn.setOnClickListener(btn -> {
             Toast.makeText(this, "Searching...",
                     Toast.LENGTH_SHORT).show();
-            stationList.clear();
-            lvAdapter.notifyDataSetChanged();
+            // stationList.clear();
+            // lvAdapter.notifyDataSetChanged();
 
             float latitude = Float.parseFloat(latitudeET.getText().toString());
             float longitude = Float.parseFloat(longitudeET.getText().toString());
@@ -121,7 +123,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
                 StationQuery findQuery = new StationQuery();
                 findQuery.execute(latitude, longitude);
-                lvAdapter.notifyDataSetChanged();
+                // lvAdapter.notifyDataSetChanged();
             }
         });
 
@@ -159,8 +161,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.ECCSFAlertRSEStr)
                         .setPositiveButton(R.string.yesStr, (dialog, id) -> {
-                            // Intent goToRecipeActivity = new Intent(CarChargerFinderActivity.this, CookActivity.class);
-                            // startActivity(goToRecipeActivity);
+                            Intent goToRecipeActivity = new Intent(CarChargerFinderActivity.this, MainRecipeActivity.class);
+                            startActivity(goToRecipeActivity);
                         })
                         .setNegativeButton(R.string.noStr, null)
                         .create()
@@ -181,8 +183,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.ECCSFAlertCCStr)
                         .setPositiveButton(R.string.yesStr, (dialog, id) -> {
-                            // Intent goToCurrencyActivity = new Intent(CarChargerFinderActivity.this, CurrencyConversion.class);
-                            // startActivity(goToCurrencyActivity);
+                            Intent goToCurrencyActivity = new Intent(CarChargerFinderActivity.this, MainActivity_currency.class);
+                            startActivity(goToCurrencyActivity);
                         })
                         .setNegativeButton(R.string.noStr, (dialog, id) -> closeOptionsMenu())
                         .create()
@@ -269,21 +271,16 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView currentTV;
             ChargingStation cs = stationList.get(position);
-            View currentView = convertView;
-
-            if (convertView == null) {
-                currentView = getLayoutInflater().inflate(R.layout.eccsf_listview_row_layout, null);
-                currentTV = currentView.findViewById(R.id.ECCSFlvNameTV);
-                currentTV.append(" " + cs.getTitle());
-                currentTV = currentView.findViewById(R.id.ECCSFlvLatitudeTV);
-                currentTV.append(" " + cs.getLatitude());
-                currentTV = currentView.findViewById(R.id.ECCSFlvLongitudeTV);
-                currentTV.append(" " + cs.getLongitude());
-                currentTV = currentView.findViewById(R.id.ECCSFlvPhoneTV);
-                currentTV.append(" " + cs.getPhoneNum());
-            }
+            View currentView = getLayoutInflater().inflate(R.layout.eccsf_listview_row_layout, null);
+            TextView currentTV = currentView.findViewById(R.id.ECCSFlvNameTV);
+            currentTV.append(" " + cs.getTitle());
+            currentTV = currentView.findViewById(R.id.ECCSFlvLatitudeTV);
+            currentTV.append(" " + cs.getLatitude());
+            currentTV = currentView.findViewById(R.id.ECCSFlvLongitudeTV);
+            currentTV.append(" " + cs.getLongitude());
+            currentTV = currentView.findViewById(R.id.ECCSFlvPhoneTV);
+            currentTV.append(" " + cs.getPhoneNum());
 
             return currentView;
         }
@@ -296,7 +293,12 @@ public class CarChargerFinderActivity extends AppCompatActivity {
      * @author Alex Hamilton
      * @since Nov. 12, 2019
      */
-  private class StationQuery extends AsyncTask<Float, Integer, String> {
+    private class StationQuery extends AsyncTask<Float, Integer, String> {
+
+        StationQuery() {
+            stationList.clear();
+            lvAdapter.notifyDataSetChanged();
+        }
 
         @Override
         protected String doInBackground(Float... coordinates) {
