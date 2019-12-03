@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -50,7 +52,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MainRecipeActivity extends AppCompatActivity{
-
+    /**
+     * Main Page of the Recipe, user search by the food name. the
+     * title from RECIPES_URL will be display on the ListView.
+     * User select a title, then it will go to the RecipeDetailFragment
+     */
     private static final String TAG = "MainRecipeActivity";
     public static final String TITLE = "TITLE";
     public static final String IMAGE_URL = "IMAGE_URL";
@@ -58,14 +64,11 @@ public class MainRecipeActivity extends AppCompatActivity{
 
     private ListView searchListView;
     private Button searchBtn;
-    private EditText searchEditText;
     private ProgressBar progressBar;
     private ArrayList<Recipe> foodList = new ArrayList<>();
     private BaseAdapter myAdapter;
     private String previous;
     private SharedPreferences prefs;
-    //private Toolbar mTopToolbar;
-    //private Bitmap result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +78,9 @@ public class MainRecipeActivity extends AppCompatActivity{
     }
 
     private void init(){
-       // mTopToolbar = (Toolbar) findViewById(R.id.toolbar_recipe);
-       // setSupportActionBar(mTopToolbar);
         searchListView = findViewById(R.id.foodListView);
         searchBtn = findViewById(R.id.foodSearchButton);
-        searchEditText =findViewById(R.id.recipe_search_edittext);
+       // searchEditText =findViewById(R.id.recipe_search_edittext);
         progressBar= findViewById(R.id.recipe_search_progressbar);
         myAdapter = new MyListAdapter();
         searchListView.setAdapter(myAdapter);
@@ -110,11 +111,12 @@ public class MainRecipeActivity extends AppCompatActivity{
                         .commit(); //actually load the fragment.
         });
 //--SharedPreferences---
+        EditText searchEditText =findViewById(R.id.recipe_search_edittext);
         prefs = getSharedPreferences("preferences", Context.MODE_PRIVATE);
 
-        String saved_email = prefs.getString("ReserveName", "");
-        searchEditText.setText(saved_email);
-        //-----
+        String foodName = prefs.getString("ReserveName", "");
+        searchEditText.setText(foodName);
+
 
     }
 
@@ -166,7 +168,8 @@ public class MainRecipeActivity extends AppCompatActivity{
 
 
     private class FoodDataQuery extends AsyncTask<String, String, String> {
-
+        //public final String KEY_RECIPES = "0d4070af456def229c3be03e20c755f7";
+        //public final String RECIPES_URL = "https://www.food2fork.com/api/search?key=" + KEY_RECIPES + "&q=";
         public final String RECIPES_URL ="http://torunski.ca/FinalProjectChickenBreast.json";
 
         public FoodDataQuery(){
@@ -254,6 +257,21 @@ public class MainRecipeActivity extends AppCompatActivity{
         myAdapter.notifyDataSetChanged();
     }
 
+    public void onPause(){
+        super.onPause();
+        EditText searchEditText =findViewById(R.id.recipe_search_edittext);
+        /***************** save ******/
+        SharedPreferences.Editor editor = prefs.edit();
+        previous = searchEditText.getText().toString();
+        editor.putString("ReserveName", previous);
+        editor.apply();
+
+        Toast.makeText(this, "* The food name has been saved *",
+                Toast.LENGTH_LONG).show();
+
+    }
+
+
     //Adapter - list of the searched food
     private class MyListAdapter extends BaseAdapter {
 
@@ -275,10 +293,8 @@ public class MainRecipeActivity extends AppCompatActivity{
             //list of the titles
             thisRow = getLayoutInflater().inflate(R.layout.recipe_row_layout, null);
 
-            //ImageView imageView=(ImageView)findViewById(R.id.imageView);
             TextView titleText = thisRow.findViewById(R.id.recipe_listview_row_title);
             titleText.setText(getItem(p).getTitle());
-            // imageView.setImageBitmap(mIcon_val);
             return thisRow;
         }
 

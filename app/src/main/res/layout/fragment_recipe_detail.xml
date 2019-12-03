@@ -45,14 +45,14 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save to Favorite"
+            android:text="@string/recipt_addFavorite"
             android:layout_weight="1"
             android:background="@drawable/recipe_round_button2"
             android:id="@+id/recipe_detail_fragment_favorite_btn"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open Web Page"
+            android:text="@string/recipt_open_webpage"
             android:layout_weight="1"
             android:background="@drawable/recipe_round_button2"
             android:id="@+id/recipe_detail_fragment_webview_btn"/>

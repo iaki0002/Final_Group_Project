@@ -1,6 +1,6 @@
 <resources>
     <!-- Main-->
-    <string name="app_name">FinalGroupProject</string>
+    <string name="app_name">CST2335</string>
     <string name="mainpage">Main page</string>
     <string name="car">Car charging station finder</string>
     <string name="recipe">Recipe engine</string>
@@ -49,6 +49,9 @@
          This item is already in your favorite list</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="recipe_menu_favorite">Favorite</string>
+    <string name="recipt_addFavorite">Add to Favorite</string>
+    <string name="recipt_open_webpage">Open Web Page</string>
+
 
     <!-- For Recipe Engine FragmentFavor-->
     <string name="intent_message">intent_message</string>
