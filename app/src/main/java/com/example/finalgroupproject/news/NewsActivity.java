@@ -281,7 +281,8 @@ public class NewsActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu_news items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_news, menu);
+       // inflater.inflate(R.menu.menu_news, menu);
+        inflater.inflate(R.menu.news_menu, menu);
         return true;
     }
 
@@ -290,7 +291,7 @@ public class NewsActivity extends AppCompatActivity {
      * @return boolean value of true
      */
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+   public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId())
         {
 

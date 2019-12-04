@@ -113,7 +113,7 @@ public class NewsMainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu_news items for use in the action bar
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_news, menu);
+        inflater.inflate(R.menu.news_menu, menu);
         return true;
     }
 
