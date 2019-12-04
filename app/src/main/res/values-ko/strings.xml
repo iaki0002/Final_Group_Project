@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FinalProject_DavidLee</string>
+    <string name="webbuttontext">웹링크</string>
+    <string name="savebuttontext">세이브</string>
+    <string name="welcometext">News API에 오신것을 환영합니다</string>
+    <string name="editText">검색어를 입력하시오</string>
+    <string name="buttonsearchtext">검색!</string>
+    <string name="copyright">API 키 출처: newsapi.org</string>
+    <string name="editsavebuttontext">세이브리스트</string>
+    <string name="savedarticletext">빈 공간</string>
+    <string name="deletesavedbutton">삭제</string>
+    <string name="alerttext">키워드를 입력하시오</string>
+    <string name="alertbutton">메인메뉴</string>
+    <string name="help">도움말</string>
+    <string name="author">제작자: David Lee</string>
+    <string name="version">버전 1.0</string>
+    <string name="instructiontitle">안내문</string>
+    <string name="instructiondesc">키워드를 입력하고 검색버튼을 누르면 기사 목록이 출력된다. 목록에서 기사를 클릭하면 할 수 있는 액션들이 뜬다. 세이브리스트에서 기사를 클릭하면 할 수 있는 액션들이 뜬다.</string>
+    <string name="exit">종료</string>
+</resources>

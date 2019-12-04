@@ -64,5 +64,23 @@
     <!--    <string name="about">About</string>-->
 
     <!-- News headlines API : David Lee-->
+    <string name="news_app_name">FinalProject_DavidLee</string>
+    <string name="webbuttontext">Web Link</string>
+    <string name="savebuttontext">Save Article</string>
+    <string name="welcometext">Welcome to News API</string>
+    <string name="editText">Type in your article keyword</string>
+    <string name="buttonsearchtext">Search!</string>
+    <string name="copyright">The API key is provided by newsapi.org</string>
+    <string name="editsavebuttontext">Save List</string>
+    <string name="savedarticletext">Blank Article</string>
+    <string name="deletesavedbutton">Delete</string>
+    <string name="alerttext">You must type a keyword</string>
+    <string name="alertbutton">Back to Main Menu</string>
+    <string name="help">INSTRUCTION</string>
+    <string name="author">Author: David Lee</string>
+    <string name="version">Version 1.0</string>
+    <string name="instructiontitle">INSTRUCTION</string>
+    <string name="instructiondesc">Typing in the keyword and click the search button will show the list of articles. Click on an article will show the actions that a user can choose from. Clicking on a row on the saved article list will show the actions that a user can choose from.</string>
+    <string name="exit">Exit</string>
 
 </resources>

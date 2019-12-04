@@ -12,6 +12,7 @@ import com.example.finalgroupproject.R;
 import com.example.finalgroupproject.car.CarChargerFinderActivity;
 import com.example.finalgroupproject.car.CarChargerFragDetails;
 import com.example.finalgroupproject.currency.MainActivity_currency;
+import com.example.finalgroupproject.news.NewsMainActivity;
 import com.example.finalgroupproject.recipe.MainRecipeActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,7 +45,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         //--- News Api.org headlines api ---
-//        newsButton = findViewById(R.id.newsButton);
+        newsButton = findViewById(R.id.newsButton);
+        newsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, NewsMainActivity.class));
+            }
+        });
 
     }
 }
