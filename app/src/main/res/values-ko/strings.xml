@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">FinalProject_DavidLee</string>
+    <!-- Main-->
+    <string name="app_name">CST2335</string>
+    <string name="mainpage">Main page</string>
+    <string name="car">Car charging station finder</string>
+    <string name="recipe">Recipe engine</string>
+    <string name="news">News headlines API</string>
+    <string name="currency">Currency conversion API</string>
+    <string name="about">About</string>
+    <string name="invButton">hi</string>
+
+
+    <!-- For Car charging station finder : Alex Hamilton-->
+    <string name="ECCSFHelpStr">Help</string>
+    <string name="ECCSFFindStr">Find</string>
+    <string name="ECCSFLatitudeStr">Latitude:</string>
+    <string name="ECCSFLongitudeStr">Longitude:</string>
+    <string name="ECCSFLongitudeHintStr">Enter longitude&#8230;</string>
+    <string name="ECCSFLatitudeHintStr">Enter latitude&#8230;</string>
+    <string name="ECCSFlvTitleStr">Location Title:</string>
+    <string name="ECCSFlvPhoneStr">Phone Number:</string>
+    <string name="ECCSFlvDirectionsStr">Load Directions</string>
+    <string name="ECCSFlvFavouritesStr">Add to Favourites</string>
+    <string name="ECCSFDeleteStr">Delete From Favourites</string>
+    <string name="ECCSFCurrencyConverterStr">Currency Converter</string>
+    <string name="ECCSFFavouritesStr">Favourites</string>
+    <string name="yesStr">Yes</string>
+    <string name="noStr">No</string>
+    <string name="ECCSFAlertCCStr">Do want to open the Currency Converter?</string>
+    <string name="ECCSFAlertRSEStr">Do want to open the Recipe Search Engine?</string>
+    <string name="ECCSFAlertNAPIStr">Do want to open the News API?</string>
+    <string name="loadFavsStr">Loading favourites</string>
+    <string name="ECCSFAboutInfoStr">Electric Car Charger Station Finder (Version 1) by Alex Hamilton.
+        \nInput your latitude and longitude to find the closest charger station.</string>
+
+    <!-- For Recipe Engine : Lai Shan Law-->
+    <string name="recipe_dialog_title">About Me</string>
+    <string name="recipe_about">
+        " Author: Lai Shan Law \n Version: 0.0.2 \n Find your favorite recipe! \n
+        Instruction: Input a food name and click the SEARCH button"</string>
+    <string name="favor">My Favorite</string>
+    <string name="goSearch">Go Search</string>
+    <string name="searchFood">Search Food</string>
+    <string name="etFood">Food Name</string>
+    <string name="searchBy">Search By:</string>
+    <string name="foodTitle">Food Title</string>
+    <string name="recipe_dialog_alert">Duplicate Item Found</string>
+    <string name="recipe_alert_duplicate">
+         This item is already in your favorite list</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="recipe_menu_favorite">Favorite</string>
+    <string name="recipt_addFavorite">Add to Favorite</string>
+    <string name="recipt_open_webpage">Open Web Page</string>
+
+
+    <!-- For Recipe Engine FragmentFavor-->
+    <string name="intent_message">intent_message</string>
+
+
+    <!-- For Currency conversion API : Dmitrii Iakimchuk-->
+    <string name="welcome">Welcome to the Currency Converter app</string>
+    <!--    <string name="app_name">Currency Converter</string>-->
+    <!--    <string name="mainpage">Main page</string>-->
+    <!--    <string name="car">Car charging station finder</string>-->
+    <!--    <string name="recipe">Recipe engine</string>-->
+    <!--    <string name="news">News headlines API</string>-->
+    <!--    <string name="about">About</string>-->
+
+    <!-- News headlines API : David Lee-->
+    <string name="news_app_name">FinalProject_DavidLee</string>
     <string name="webbuttontext">웹링크</string>
     <string name="savebuttontext">세이브</string>
     <string name="welcometext">News API에 오신것을 환영합니다</string>

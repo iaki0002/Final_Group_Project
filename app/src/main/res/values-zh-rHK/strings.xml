@@ -1,0 +1,87 @@
+<resources>
+    <!-- Main-->
+    <string name="app_name">CST2335</string>
+    <string name="mainpage">主頁</string>
+    <string name="car">汽車充電站</string>
+    <string name="recipe">食譜</string>
+    <string name="news">新聞頭條</string>
+    <string name="currency">貨幣轉換</string>
+    <string name="about">關於</string>
+    <string name="invButton">你好</string>
+
+
+    <!-- For Car charging station finder : Alex Hamilton-->
+    <string name="ECCSFHelpStr">救命</string>
+    <string name="ECCSFFindStr">找</string>
+    <string name="ECCSFLatitudeStr">緯度:</string>
+    <string name="ECCSFLongitudeStr">經度:</string>
+    <string name="ECCSFLongitudeHintStr">輸入經度&#8230;</string>
+    <string name="ECCSFLatitudeHintStr">輸入緯度&#8230;</string>
+    <string name="ECCSFlvTitleStr">位置標題:</string>
+    <string name="ECCSFlvPhoneStr">電話號碼:</string>
+    <string name="ECCSFlvDirectionsStr">加載方向</string>
+    <string name="ECCSFlvFavouritesStr">加入最喜歡的</string>
+    <string name="ECCSFDeleteStr">從收藏夾刪除</string>
+    <string name="ECCSFCurrencyConverterStr">貨幣換算</string>
+    <string name="ECCSFFavouritesStr">收藏夾</string>
+    <string name="yesStr">是</string>
+    <string name="noStr">沒有</string>
+    <string name="ECCSFAlertCCStr">是否要打開貨幣轉換器？</string>
+    <string name="ECCSFAlertRSEStr">是否要打開食譜搜索引擎？</string>
+    <string name="ECCSFAlertNAPIStr">想要打開新聞API?</string>
+    <string name="loadFavsStr">Loading 正在加載收藏夾</string>
+    <string name="ECCSFAboutInfoStr">Alex Hamilton的電動汽車充電站搜尋器（版本1）。
+        \n輸入您的經度和緯度以找到最近的充電器站。</string>
+
+    <!-- For Recipe Engine : Lai Shan Law-->
+    <string name="recipe_dialog_title">關於我</string>
+    <string name="recipe_about">
+        " 作者: Lai Shan Law \n 版: 0.0.2 \n 找到你最喜歡的食譜! \n
+        說明：輸入食物名稱，然後點擊搜索按鈕"</string>
+    <string name="favor">我的最愛</string>
+    <string name="goSearch">去搜索</string>
+    <string name="searchFood">搜索食物</string>
+    <string name="etFood">食物名稱</string>
+    <string name="searchBy">搜索依據:</string>
+    <string name="foodTitle">食品名稱</string>
+    <string name="recipe_dialog_alert">找到重複的項目</string>
+    <string name="recipe_alert_duplicate">
+         此項目已經在您的收藏夾列表中</string>
+    <string name="hello_blank_fragment">你好空白片段</string>
+    <string name="recipe_menu_favorite">喜愛</string>
+    <string name="recipt_addFavorite">加入收藏</string>
+    <string name="recipt_open_webpage">打開網頁</string>
+    <string name="intent_message">意向消息</string>
+
+
+    <!-- For Currency conversion API : Dmitrii Iakimchuk-->
+    <string name="welcome">歡迎使用貨幣轉換器應用程序</string>
+    <!--    <string name="app_name">Currency Converter</string>-->
+    <!--    <string name="mainpage">Main page</string>-->
+    <!--    <string name="car">Car charging station finder</string>-->
+    <!--    <string name="recipe">Recipe engine</string>-->
+    <!--    <string name="news">News headlines API</string>-->
+    <!--    <string name="about">About</string>-->
+
+    <!-- News headlines API : David Lee-->
+    <string name="news_app_name">最終項目 DavidLee</string>
+    <string name="webbuttontext">網站鏈接</string>
+    <string name="savebuttontext">保存文章</string>
+    <string name="welcometext">歡迎來到新聞 API</string>
+    <string name="editText">輸入您的文章關鍵字</string>
+    <string name="buttonsearchtext">搜索!</string>
+    <string name="copyright">API密鑰由提供 newsapi.org</string>
+    <string name="editsavebuttontext">保存清單</string>
+    <string name="savedarticletext">空白文章</string>
+    <string name="deletesavedbutton">刪除</string>
+    <string name="alerttext">您必須輸入關鍵字</string>
+    <string name="alertbutton">返回主菜單</string>
+    <string name="help">指令</string>
+    <string name="author">作者: David Lee</string>
+    <string name="version">版 1.0</string>
+    <string name="instructiontitle">指令</string>
+    <string name="instructiondesc">輸入關鍵字並單擊搜索按鈕將顯示文章列表。
+    單擊文章將顯示用戶可以選擇的操作。
+        單擊已保存文章列表上的一行將顯示用戶可以選擇的操作。</string>
+    <string name="exit">出口</string>
+</resources>
