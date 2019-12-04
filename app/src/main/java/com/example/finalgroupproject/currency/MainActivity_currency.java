@@ -140,6 +140,7 @@ public class MainActivity_currency extends AppCompatActivity {
                     long results = database.insert(CurrencyDatabase.TABLE_NAME, null, values);
                     /**
                      * creating a toast and a snackbar to let the user know about the outcome
+                     * 1
                      */
                     View parentLayout = findViewById(android.R.id.content);
                     Snackbar.make(parentLayout, "Saved to favourites succesfully!", Snackbar.LENGTH_LONG)
