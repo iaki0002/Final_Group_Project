@@ -2,7 +2,6 @@ package com.example.finalgroupproject.car;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,7 +15,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,28 +24,21 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.finalgroupproject.R;
+import com.example.finalgroupproject.currency.MainActivity_currency;
+import com.example.finalgroupproject.recipe.MainRecipeActivity;
 import com.google.android.material.snackbar.Snackbar;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
@@ -71,9 +62,9 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_charger_finder);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        // Toolbar toolbar = findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
+        // getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // creates and opens the database
         CarChargerDatabaseOpenHelper dbOpener = new CarChargerDatabaseOpenHelper(CarChargerFinderActivity.this);
@@ -81,7 +72,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.ECCSFListView);
         lv.setAdapter(lvAdapter = new LVAdapter());
 
-        // loadFavourites();
+        // loadStationsFromDB();
 
         TextView latitudeTV = findViewById(R.id.ECCSFLatitudeTV);
         TextView longitudeTV = findViewById(R.id.ECCSFLongitudeTV);
@@ -103,8 +94,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         findBtn.setOnClickListener(btn -> {
             Toast.makeText(this, "Searching...",
                     Toast.LENGTH_SHORT).show();
-            stationList.clear();
-            lvAdapter.notifyDataSetChanged();
+            // stationList.clear();
+            // lvAdapter.notifyDataSetChanged();
 
             float latitude = Float.parseFloat(latitudeET.getText().toString());
             float longitude = Float.parseFloat(longitudeET.getText().toString());
@@ -121,7 +112,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
                 StationQuery findQuery = new StationQuery();
                 findQuery.execute(latitude, longitude);
-                lvAdapter.notifyDataSetChanged();
+                // lvAdapter.notifyDataSetChanged();
             }
         });
 
@@ -159,8 +150,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.ECCSFAlertRSEStr)
                         .setPositiveButton(R.string.yesStr, (dialog, id) -> {
-                            // Intent goToRecipeActivity = new Intent(CarChargerFinderActivity.this, CookActivity.class);
-                            // startActivity(goToRecipeActivity);
+                            Intent goToRecipeActivity = new Intent(CarChargerFinderActivity.this, MainRecipeActivity.class);
+                            startActivity(goToRecipeActivity);
                         })
                         .setNegativeButton(R.string.noStr, null)
                         .create()
@@ -181,8 +172,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.ECCSFAlertCCStr)
                         .setPositiveButton(R.string.yesStr, (dialog, id) -> {
-                            // Intent goToCurrencyActivity = new Intent(CarChargerFinderActivity.this, CurrencyConversion.class);
-                            // startActivity(goToCurrencyActivity);
+                            Intent goToCurrencyActivity = new Intent(CarChargerFinderActivity.this, MainActivity_currency.class);
+                            startActivity(goToCurrencyActivity);
                         })
                         .setNegativeButton(R.string.noStr, (dialog, id) -> closeOptionsMenu())
                         .create()
@@ -198,7 +189,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
             case R.id.favouritesOverFlowItem:
                 Snackbar.make(latitudeET, R.string.loadFavsStr, 1_000).show();
                 // stationList.clear();
-                loadFavourites();
+                loadStationsFromDB();
                 // Cursor qResults = db.query(false, CarChargerDatabaseOpenHelper.TABLE_NAME,
                 //         new String[]{CarChargerDatabaseOpenHelper.COL_ID, CarChargerDatabaseOpenHelper.COL_LOCATION_TITLE,
                 //                 CarChargerDatabaseOpenHelper.COL_LATITUDE, CarChargerDatabaseOpenHelper.COL_LONGITUDE,
@@ -242,7 +233,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 // } else {
                 //     Snackbar.make(result, "Not in Favourites", Snackbar.LENGTH_SHORT).show();
                 // }
-                loadFavourites();
+                loadStationsFromDB();
             }
         }
     }
@@ -269,21 +260,16 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            TextView currentTV;
             ChargingStation cs = stationList.get(position);
-            View currentView = convertView;
-
-            if (convertView == null) {
-                currentView = getLayoutInflater().inflate(R.layout.eccsf_listview_row_layout, null);
-                currentTV = currentView.findViewById(R.id.ECCSFlvNameTV);
-                currentTV.append(" " + cs.getTitle());
-                currentTV = currentView.findViewById(R.id.ECCSFlvLatitudeTV);
-                currentTV.append(" " + cs.getLatitude());
-                currentTV = currentView.findViewById(R.id.ECCSFlvLongitudeTV);
-                currentTV.append(" " + cs.getLongitude());
-                currentTV = currentView.findViewById(R.id.ECCSFlvPhoneTV);
-                currentTV.append(" " + cs.getPhoneNum());
-            }
+            View currentView = getLayoutInflater().inflate(R.layout.eccsf_listview_row_layout, null);
+            TextView currentTV = currentView.findViewById(R.id.ECCSFlvNameTV);
+            currentTV.append(" " + cs.getTitle());
+            currentTV = currentView.findViewById(R.id.ECCSFlvLatitudeTV);
+            currentTV.append(" " + cs.getLatitude());
+            currentTV = currentView.findViewById(R.id.ECCSFlvLongitudeTV);
+            currentTV.append(" " + cs.getLongitude());
+            currentTV = currentView.findViewById(R.id.ECCSFlvPhoneTV);
+            currentTV.append(" " + cs.getPhoneNum());
 
             return currentView;
         }
@@ -296,7 +282,12 @@ public class CarChargerFinderActivity extends AppCompatActivity {
      * @author Alex Hamilton
      * @since Nov. 12, 2019
      */
-  private class StationQuery extends AsyncTask<Float, Integer, String> {
+    private class StationQuery extends AsyncTask<Float, Integer, String> {
+
+        StationQuery() {
+            stationList.clear();
+            lvAdapter.notifyDataSetChanged();
+        }
 
         @Override
         protected String doInBackground(Float... coordinates) {
@@ -349,9 +340,19 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                                 xpp.next();
                                 String phone = xpp.getText();
                                 stationList.add(new ChargingStation(stationName, lat, lon, phone));
-                                if (++count == 3) {
+                                if (++count == 1) {
+                                    try {
+                                        Thread.sleep(10);
+                                    } catch (InterruptedException ie) {
+                                        Log.e("THREAD ERROR", ie.getMessage() + " ");
+                                    }
                                     publishProgress(75);
                                 } else if (count == 10) {
+                                    try {
+                                        Thread.sleep(10);
+                                    } catch (InterruptedException ie) {
+                                        Log.e("THREAD ERROR", ie.getMessage() + " ");
+                                    }
                                     publishProgress(100);
                                 }
                         }
@@ -421,7 +422,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
     }
 
-    private void loadFavourites() {
+    void loadStationsFromDB() {
         stationList.clear();
         // adds all database entries from the table STATIONS into stationList
         Cursor qResults = db.query(false, CarChargerDatabaseOpenHelper.TABLE_NAME,

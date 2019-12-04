@@ -1,5 +1,6 @@
 package com.example.finalgroupproject.car;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -21,10 +22,9 @@ import com.google.android.material.snackbar.Snackbar;
 public class CarChargerFragDetails extends Fragment {
 
     private boolean isTablet;
-    private Bundle dataFromPrevActivity;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        dataFromPrevActivity = getArguments();
+        Bundle dataFromPrevActivity = getArguments();
         // inflates the layout for this fragment
         View result = inflater.inflate(R.layout.eccsf_fragment_detail_layout, container, false);
 
@@ -71,9 +71,19 @@ public class CarChargerFragDetails extends Fragment {
             long rowId = CarChargerFinderActivity.db.insert(CarChargerDatabaseOpenHelper.TABLE_NAME,
                     null, row);
 
-
             Snackbar.make(result, "Added to Favourites", Snackbar.LENGTH_SHORT).show();
 
+            if (isTablet) {
+                CarChargerFinderActivity parentActivity = (CarChargerFinderActivity) getActivity();
+                parentActivity.loadStationsFromDB();
+                // removes this fragment since its underlying message has been deleted from the database
+                parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
+            } else {    // user is using a phone
+                CarChargerPhoneFragActivity parentActivity = (CarChargerPhoneFragActivity) getActivity();
+                Intent backToCCFActivity = new Intent();
+                parentActivity.setResult(Activity.RESULT_OK, backToCCFActivity);
+                parentActivity.finish();
+            }
         });
 
         Button deleteBtn = result.findViewById(R.id.ECCSFDeleteBtn);
@@ -84,6 +94,17 @@ public class CarChargerFragDetails extends Fragment {
                         CarChargerDatabaseOpenHelper.COL_ID + " = ?", new String[]{String.valueOf(dbId)});
                 Snackbar.make(result, "Deleted from Favourites", Snackbar.LENGTH_SHORT).show();
                 Log.e("Rows affected", rowsAffected + " ");
+                if (isTablet) {
+                    CarChargerFinderActivity parentActivity = (CarChargerFinderActivity) getActivity();
+                    parentActivity.loadStationsFromDB();
+                    // removes this fragment since its underlying message has been deleted from the database
+                    parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
+                }   else { // user is using a phone
+                    CarChargerPhoneFragActivity parentActivity = (CarChargerPhoneFragActivity) getActivity();
+                    Intent backToCCFActivity = new Intent();
+                    parentActivity.setResult(Activity.RESULT_OK, backToCCFActivity);
+                    parentActivity.finish();
+                }
             } else {
                 Snackbar.make(result, "Not in Favourites", Snackbar.LENGTH_SHORT).show();
             }

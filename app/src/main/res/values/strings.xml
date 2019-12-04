@@ -31,7 +31,7 @@
     <string name="ECCSFAlertNAPIStr">Do want to open the News API?</string>
     <string name="loadFavsStr">Loading favourites</string>
     <string name="ECCSFAboutInfoStr">Electric Car Charger Station Finder (Version 1) by Alex Hamilton.
-        \nInput your Latitude and Longitude to find the closest charger station.</string>
+        \nInput your latitude and longitude to find the closest charger station.</string>
 
     <!-- For Recipe Engine : Lai Shan Law-->
     <string name="recipe_dialog_title">About Me</string>
