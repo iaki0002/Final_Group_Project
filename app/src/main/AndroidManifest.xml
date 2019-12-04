@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".car.CarChargerPhoneFragActivity"></activity>
+        <activity android:name=".news.SavedListActivity"></activity>
+        <activity android:name=".news.NewsMainActivity" />
+        <activity android:name=".news.NewsActivity" />
+        <activity android:name=".car.CarChargerPhoneFragActivity" />
         <activity android:name=".car.CarChargerFinderActivity" />
         <activity android:name=".currency.CurrencyFavouriteActivity" />
         <activity android:name=".currency.MainActivity_currency" />

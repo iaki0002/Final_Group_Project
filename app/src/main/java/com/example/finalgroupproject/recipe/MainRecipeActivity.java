@@ -29,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.finalgroupproject.R;
+import com.example.finalgroupproject.car.CarChargerFinderActivity;
 import com.example.finalgroupproject.currency.MainActivity_currency;
 import com.example.finalgroupproject.main.MainActivity;
 import org.json.JSONArray;
@@ -152,7 +153,8 @@ public class MainRecipeActivity extends AppCompatActivity{
                 startActivity(new Intent(MainRecipeActivity.this, RecipeFavoriteActivity.class));
                 return true;
             case R.id.menu_car:
-                startActivity(new Intent(MainRecipeActivity.this, MainActivity.class));
+                startActivity(new Intent(MainRecipeActivity.this, CarChargerFinderActivity.class));
+                return true;
             case R.id.menu_currency:
                 startActivity(new Intent(MainRecipeActivity.this, MainActivity_currency.class));
                 return true;
