@@ -8,6 +8,7 @@ Date: Dec 02, 2019
  */
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,6 +16,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
@@ -22,6 +26,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 import com.example.finalgroupproject.R;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -36,6 +41,7 @@ public class SavedListActivity extends AppCompatActivity {
     private BaseAdapter adapter;
     private Cursor cursor;
     SQLiteDatabase db;
+    private Toolbar tBar;
 
     /**
      * onCreate function
@@ -48,7 +54,7 @@ public class SavedListActivity extends AppCompatActivity {
 
         savedList = (ListView) findViewById(R.id.savedlist);
 
-
+        tBar = findViewById(R.id.toolbar);
         adapter = new SavedAdapter(savedArrayList, this);
         savedList.setAdapter(adapter);
 
@@ -119,6 +125,57 @@ public class SavedListActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    /**
+     * @param menu the menu_news object
+     * @return boolean value of true
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu_news items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.news_menu, menu);
+        return true;
+    }
+
+    /**
+     * @param item menuitem object
+     * @return boolean value of true
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId())
+        {
+            case R.id.help:
+                showHelp();
+                break;
+
+            case R.id.exit:
+                Snackbar sb = Snackbar.make(tBar, "Exit?", Snackbar.LENGTH_LONG);
+                sb.setAction("Terminate", e -> finish());
+                sb.show();
+                break;
+
+            case R.id.edit:
+                Intent savedActivity = new Intent(SavedListActivity.this, SavedListActivity.class);
+                startActivity(savedActivity);
+        }
+        return true;
+    }
+
+    /**
+     * creates a custom dialog of instructions
+     */
+    public void showHelp()
+    {
+        View middle = getLayoutInflater().inflate(R.layout.help_dialog, null);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("HELP")
+                .setView(middle);
+
+        builder.create().show();
 
     }
 }
