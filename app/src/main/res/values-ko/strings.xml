@@ -52,7 +52,7 @@
     <string name="recipe_menu_favorite">Favorite</string>
     <string name="recipt_addFavorite">Add to Favorite</string>
     <string name="recipt_open_webpage">Open Web Page</string>
-
+    <string name="recipt_remove_favorite"> Remove Favorite</string>
 
     <!-- For Recipe Engine FragmentFavor-->
     <string name="intent_message">intent_message</string>

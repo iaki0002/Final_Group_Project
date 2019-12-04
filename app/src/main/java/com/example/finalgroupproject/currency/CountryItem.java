@@ -1,5 +1,9 @@
 package com.example.finalgroupproject.currency;
 
+
+/**
+ * this class is responsible for the parts of the spinner (flag + name)
+ */
 public class CountryItem {
 
     private String mCountryName;

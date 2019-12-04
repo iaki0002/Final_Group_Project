@@ -90,9 +90,10 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_charger_finder);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+//        getSupportActionBar();
+      
         // creates and opens the database
         CarChargerDatabaseOpenHelper dbOpener = new CarChargerDatabaseOpenHelper(CarChargerFinderActivity.this);
         db = dbOpener.getWritableDatabase();

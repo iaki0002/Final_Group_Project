@@ -32,6 +32,8 @@ import com.example.finalgroupproject.R;
 import com.example.finalgroupproject.car.CarChargerFinderActivity;
 import com.example.finalgroupproject.currency.MainActivity_currency;
 import com.example.finalgroupproject.main.MainActivity;
+import com.example.finalgroupproject.news.NewsMainActivity;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -50,7 +52,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class MainRecipeActivity extends AppCompatActivity{
     /**
@@ -81,35 +83,44 @@ public class MainRecipeActivity extends AppCompatActivity{
     private void init(){
         searchListView = findViewById(R.id.foodListView);
         searchBtn = findViewById(R.id.foodSearchButton);
-       // searchEditText =findViewById(R.id.recipe_search_edittext);
         progressBar= findViewById(R.id.recipe_search_progressbar);
         myAdapter = new MyListAdapter();
+//setAdapter
         searchListView.setAdapter(myAdapter);
         progressBar.setVisibility(View.INVISIBLE);
 //Search a name
         searchBtn.setOnClickListener(k->{
             Log.d(TAG,"searchBtn.setOnClickListener");
             progressBar.setVisibility(View.VISIBLE);
-//go to AsybcTask
+//AsybcTask execute
             new FoodDataQuery().execute();
         });
-//Select an item from listView
-        // and call RecipeDetailFragment go into recipe_main_framelayout
+//Select an item from ListView and call RecipeDetailFragment go into recipe_main_framelayout
+        /**
+         * @param list a ListView that was clicked
+         * @param item View that was returned by getView()
+         * @param position index of the item in the list
+         * @param id database ID
+         */
+        //                                 (ListView, View, position, Long id)
         searchListView.setOnItemClickListener( (list, item, position, id) -> {
 
             Bundle dataToPass = new Bundle();
             dataToPass.putString(TITLE, foodList.get(position).getTitle() );
             dataToPass.putString(IMAGE_URL, foodList.get(position).getImageURL());
             dataToPass.putString(URL, foodList.get(position).getSourceURL());
-
-                RecipeDetailFragment dFragment = new RecipeDetailFragment(); //add a DetailFragment
-                dFragment.setArguments( dataToPass ); //pass it a bundle for information
+                //create a DetailFragment and add into the FrameLayout
+                RecipeDetailFragment dFragment = new RecipeDetailFragment();
+                //pass it a bundle for information
+                dFragment.setArguments( dataToPass );
                 getSupportFragmentManager()
                         .beginTransaction()
                         //Add the fragment in FrameLayout, MainRecipeActivity
                         .add(R.id.recipe_main_framelayout, dFragment)
-                        .addToBackStack("Back") //make the back button undo the transaction
-                        .commit(); //actually load the fragment.
+                        //use the back button undo the transaction
+                        .addToBackStack("Back")
+                        //actually load the fragment.
+                        .commit();
         });
 //--SharedPreferences---
         EditText searchEditText =findViewById(R.id.recipe_search_edittext);
@@ -117,8 +128,6 @@ public class MainRecipeActivity extends AppCompatActivity{
 
         String foodName = prefs.getString("ReserveName", "");
         searchEditText.setText(foodName);
-
-
     }
 
     //TOOLBAR, inflate the Menu resource
@@ -129,7 +138,7 @@ public class MainRecipeActivity extends AppCompatActivity{
         inflater.inflate(R.menu.recipe_menu, menu);
         return true;
     }
-    //MENU item
+    //MENU item : responds to an Item being selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -159,16 +168,14 @@ public class MainRecipeActivity extends AppCompatActivity{
                 startActivity(new Intent(MainRecipeActivity.this, MainActivity_currency.class));
                 return true;
             case R.id.menu_news:
-                startActivity(new Intent(MainRecipeActivity.this, MainActivity.class));
+                startActivity(new Intent(MainRecipeActivity.this, NewsMainActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-
-
-
+//AsyncTask: query data from Recipes_URL
     private class FoodDataQuery extends AsyncTask<String, String, String> {
         //public final String KEY_RECIPES = "0d4070af456def229c3be03e20c755f7";
         //public final String RECIPES_URL = "https://www.food2fork.com/api/search?key=" + KEY_RECIPES + "&q=";
@@ -176,14 +183,14 @@ public class MainRecipeActivity extends AppCompatActivity{
 
         public FoodDataQuery(){
         }
-        //Type 1
+//Type 1
+        //to avoid the cause problems when synchronize between the GUI and background threads
         @Override
         protected String doInBackground(String ... strings) {
-
-
             Log.d(TAG,"doInBackground");
-            try {
+            try {//timeout = 3seconds
                 JSONObject response = new JSONObject(getJSON(RECIPES_URL,3000));
+                //get JSON Array object "recipes []"
                 JSONArray objects = response.getJSONArray("recipes");
                 for(int i = 0; i < objects.length(); i++)
                 {
@@ -201,9 +208,15 @@ public class MainRecipeActivity extends AppCompatActivity{
             return "";
          }
         //reference: https://stackoverflow.com/questions/10500775/parse-json-from-httpurlconnection-object
+        /*
+         * connect to HTTP server with RECIPES_URL, timeout = 3seconds
+         * @param url, RECIPES_URL
+         * @param timeout, 3000ms
+         */
         public String getJSON(String url, int timeout) {
             HttpURLConnection c = null;
             try {
+                //connect to HTTP server with RECIPES_URL
                 URL u = new URL(url);
                 c = (HttpURLConnection) u.openConnection();
                 c.setRequestMethod("GET");
@@ -218,6 +231,8 @@ public class MainRecipeActivity extends AppCompatActivity{
                 switch (status) {
                     case 200:
                     case 201:
+                        //build the entire string from the inputstream
+                        //json is UTF-8 by default
                         BufferedReader br = new BufferedReader(new InputStreamReader(c.getInputStream()));
                         StringBuilder sb = new StringBuilder();
                         String line;
@@ -244,7 +259,7 @@ public class MainRecipeActivity extends AppCompatActivity{
             }
             return null;
         }
-        //Type 3
+//Type 3
         @Override
         protected void onPostExecute(String strings) {
             super.onPostExecute(strings);
@@ -258,48 +273,55 @@ public class MainRecipeActivity extends AppCompatActivity{
         progressBar.setVisibility(View.INVISIBLE);
         myAdapter.notifyDataSetChanged();
     }
-
+//SharedPreference - save
     public void onPause(){
         super.onPause();
         EditText searchEditText =findViewById(R.id.recipe_search_edittext);
-        /***************** save ******/
+        /*** save ***/
         SharedPreferences.Editor editor = prefs.edit();
         previous = searchEditText.getText().toString();
         editor.putString("ReserveName", previous);
         editor.apply();
-
-        Toast.makeText(this, "* The food name has been saved *",
-                Toast.LENGTH_LONG).show();
-
     }
 
-
-    //Adapter - list of the searched food
+//Adapter - populate the ListView with data, fill the list
     private class MyListAdapter extends BaseAdapter {
-
+        //1st call
+        //return the size of the ArrayList
         public int getCount() {
             return foodList.size();
-        } //This function tells how many foodList to show
-
+        }
+         /*
+         * returns an object (Recipe) at position
+         * call be getView()
+         * @param position, row position
+         */
         public Recipe getItem(int position) {
             return foodList.get(position);
-        }  //This returns the string at position p
-
+        }
+        /*
+         * returns database id of the item at row position
+         * @param p, the item at position
+         */
         public long getItemId(int p) {
             return p;
-        } //This returns the database id of the item at position p
-
+        }
+        /* 2nd call
+         * This specify how each row looks,
+         * creates a View object to go in a row of the ListView
+         * @param p, the item at position
+         * @param recycled, a OLD view, recycled view, reuse memory of row that have scrolled of the screen
+         */
         public View getView(int p, View recycled, ViewGroup parent) {
             View thisRow = recycled;
 
-            //list of the titles
+            //load XML layout file
             thisRow = getLayoutInflater().inflate(R.layout.recipe_row_layout, null);
-
+            //look  in the layout loaded in a newView
             TextView titleText = thisRow.findViewById(R.id.recipe_listview_row_title);
             titleText.setText(getItem(p).getTitle());
             return thisRow;
         }
-
     }
 }//MainRecipeActivity
 

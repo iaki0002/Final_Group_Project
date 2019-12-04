@@ -1,16 +1,19 @@
 package com.example.finalgroupproject.currency;
-//package finalproject.currencyconverter;
-
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.finalgroupproject.R;
 
 import java.util.ArrayList;
 
+
+/**
+ * class responsible for saving items to favourite items database(not completed)
+ */
 public class CurrencyFavouriteActivity extends AppCompatActivity {
 
     ArrayList<CurrencyConversion> conversionList;

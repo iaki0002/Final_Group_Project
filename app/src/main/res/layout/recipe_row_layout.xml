@@ -9,6 +9,7 @@
         android:id="@+id/recipe_listview_row_title"
         android:textSize="20dp"
         android:text="title"
+        android:textStyle="bold"
         />
 <!--
     <ImageView
