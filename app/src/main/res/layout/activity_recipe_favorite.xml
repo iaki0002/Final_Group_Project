@@ -31,7 +31,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Remove Favorite"
+            android:text="@string/recipt_remove_favorite"
             android:background="@drawable/recipe_round_button2"
             android:id="@+id/recipe_remove_favorite_btn"/>
 
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Open Web Page"
+            android:text="@string/recipt_open_webpage"
             android:background="@drawable/recipe_round_button2"
             android:id="@+id/recipe_favorite_webview_btn"/>
     </LinearLayout>

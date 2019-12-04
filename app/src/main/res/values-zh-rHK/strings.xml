@@ -52,7 +52,7 @@
     <string name="recipt_addFavorite">加入收藏</string>
     <string name="recipt_open_webpage">打開網頁</string>
     <string name="intent_message">意向消息</string>
-
+    <string name="recipt_remove_favorite">刪除收藏</string>
 
     <!-- For Currency conversion API : Dmitrii Iakimchuk-->
     <string name="welcome">歡迎使用貨幣轉換器應用程序</string>

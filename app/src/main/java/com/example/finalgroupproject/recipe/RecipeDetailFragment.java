@@ -47,6 +47,7 @@ public class RecipeDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view=inflater.inflate(R.layout.fragment_recipe_detail, container, false);
+        //get the bundle from MainRecipeActivity
         dataFromActivity = getArguments();
         initView(view);
         return view;
@@ -104,7 +105,9 @@ public class RecipeDetailFragment extends Fragment {
             if(noDuplicate) {
 
           */
-               if(dbHelper.insert(
+         //Insert in the table. add a value for each column in the table(see in RecipeDBHelper),
+         // and then insert last. It returns database ID of the row just inserted
+                  if(dbHelper.insert(
                        dataFromActivity.getString(MainRecipeActivity.TITLE),
                        dataFromActivity.getString(MainRecipeActivity.IMAGE_URL),
                        dataFromActivity.getString(MainRecipeActivity.URL))>0){
