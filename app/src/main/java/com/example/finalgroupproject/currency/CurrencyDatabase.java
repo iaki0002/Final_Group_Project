@@ -1,11 +1,18 @@
 package com.example.finalgroupproject.currency;
 
 import android.app.Activity;
-import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+
+/**
+ * creating the database for saving to favourites (not completed)
+ */
 public class CurrencyDatabase extends SQLiteOpenHelper {
+
+    /**
+     * initializing variables
+     */
     public static final int VERSION_NUM = 2;
     public static final String DATABASE_NAME = "CurrencyDB";
     public static final String TABLE_NAME = "CurrencyTable";
@@ -30,6 +37,9 @@ public class CurrencyDatabase extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(query);
     }
 
+    /**
+     * upgrade or downgrade database version
+     */
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int oldVersion, int newVersion) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);

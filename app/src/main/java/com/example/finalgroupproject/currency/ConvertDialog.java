@@ -11,6 +11,9 @@ import androidx.appcompat.app.AppCompatDialogFragment;
 
 public class ConvertDialog extends AppCompatDialogFragment {
 
+    /**
+     *creating the dialog to show when conversion is successful
+     */
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
