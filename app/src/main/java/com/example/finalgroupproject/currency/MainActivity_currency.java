@@ -30,6 +30,7 @@ import com.example.finalgroupproject.car.CarChargerFinderActivity;
 import com.example.finalgroupproject.main.MainActivity;
 import com.example.finalgroupproject.news.NewsMainActivity;
 import com.example.finalgroupproject.recipe.MainRecipeActivity;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -138,9 +139,17 @@ public class MainActivity_currency extends AppCompatActivity {
                      */
                     long results = database.insert(CurrencyDatabase.TABLE_NAME, null, values);
                     /**
-                     * creating a toast to let the user know about the outcome
+                     * creating a toast and a snackbar to let the user know about the outcome
                      */
-                    makeToast("Saved to favourites successfully");
+                    View parentLayout = findViewById(android.R.id.content);
+                    Snackbar.make(parentLayout, "Saved to favourites succesfully!", Snackbar.LENGTH_LONG)
+                            .setAction("CLOSE", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                }
+                            })
+                            .show();
                 } else {
                     makeToast("Please do the conversion first!");
                 }
