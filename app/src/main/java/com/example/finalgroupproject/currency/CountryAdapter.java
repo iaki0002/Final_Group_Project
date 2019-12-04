@@ -15,6 +15,10 @@ import com.example.finalgroupproject.R;
 
 import java.util.ArrayList;
 
+/**
+ * this class creates the adapter for the country spinner
+ */
+
 public class CountryAdapter extends ArrayAdapter<CountryItem> {
 
     public CountryAdapter(Context context, ArrayList<CountryItem> countryList) {
@@ -26,10 +30,6 @@ public class CountryAdapter extends ArrayAdapter<CountryItem> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         return initView(position, convertView, parent);
     }
-
-//    public int getPositionByName(String name){
-//
-//    }
 
     @Override
     public View getDropDownView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
