@@ -32,6 +32,8 @@ import com.example.finalgroupproject.R;
 import com.example.finalgroupproject.car.CarChargerFinderActivity;
 import com.example.finalgroupproject.currency.MainActivity_currency;
 import com.example.finalgroupproject.main.MainActivity;
+import com.example.finalgroupproject.news.NewsMainActivity;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -50,7 +52,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class MainRecipeActivity extends AppCompatActivity{
     /**
@@ -159,7 +161,7 @@ public class MainRecipeActivity extends AppCompatActivity{
                 startActivity(new Intent(MainRecipeActivity.this, MainActivity_currency.class));
                 return true;
             case R.id.menu_news:
-                startActivity(new Intent(MainRecipeActivity.this, MainActivity.class));
+                startActivity(new Intent(MainRecipeActivity.this, NewsMainActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -258,19 +260,15 @@ public class MainRecipeActivity extends AppCompatActivity{
         progressBar.setVisibility(View.INVISIBLE);
         myAdapter.notifyDataSetChanged();
     }
-
+//SharedPreference - save
     public void onPause(){
         super.onPause();
         EditText searchEditText =findViewById(R.id.recipe_search_edittext);
-        /***************** save ******/
+        /*** save ***/
         SharedPreferences.Editor editor = prefs.edit();
         previous = searchEditText.getText().toString();
         editor.putString("ReserveName", previous);
         editor.apply();
-
-        Toast.makeText(this, "* The food name has been saved *",
-                Toast.LENGTH_LONG).show();
-
     }
 
 
