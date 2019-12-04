@@ -19,10 +19,20 @@ import androidx.fragment.app.Fragment;
 import com.example.finalgroupproject.R;
 import com.google.android.material.snackbar.Snackbar;
 
+/**
+ * @author - Alex Hamilton
+ *
+ * This class is used to display and add functionality to the Fragment for
+ * the Electric Car Charger Station Finder app.
+ */
 public class CarChargerFragDetails extends Fragment {
 
+    /**
+     * Instance field that is used to keep track of whether the user is using a tablet.
+     */
     private boolean isTablet;
 
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Bundle dataFromPrevActivity = getArguments();
         // inflates the layout for this fragment
@@ -112,10 +122,23 @@ public class CarChargerFragDetails extends Fragment {
         return result;
     }
 
+    /**
+     * Setter method to for instance field that is used to keep track of whether the user is using a tablet.
+     * @param isTablet - boolean
+     */
     void setIsTablet(boolean isTablet) {
         this.isTablet = isTablet;
     }
 
+    /**
+     * This method is used to get the database id of the ChargerStation with the arguments that are passed in.
+     * @param name - String that represents the name of the ChargerStation.
+     * @param latitude - double that represents the latitude of the ChargerStation.
+     * @param longitude - double that represents the longitude of the ChargerStation.
+     * @param phoneNum - String that represents the phone number of the ChargerStation.
+     * @return - int that represents the id of the ChargerStation. If the ChargerStation does not exist
+     *           in the database, this method returns -1.
+     */
     private int getDatabaseId(String name, double latitude, double longitude, String phoneNum) {
         Cursor qResults = CarChargerFinderActivity.db.query(false, CarChargerDatabaseOpenHelper.TABLE_NAME,
                 new String[]{CarChargerDatabaseOpenHelper.COL_ID, CarChargerDatabaseOpenHelper.COL_LOCATION_TITLE,

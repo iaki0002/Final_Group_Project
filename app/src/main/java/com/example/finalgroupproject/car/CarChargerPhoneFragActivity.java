@@ -6,6 +6,12 @@ import android.os.Bundle;
 
 import com.example.finalgroupproject.R;
 
+/**
+ * @author - Alex Hamilton
+ *
+ * This class is used to represent the activity that is displayed on a phone to replace the Fragment
+ * that would displayed if the user were using a tablet.
+ */
 public class CarChargerPhoneFragActivity extends AppCompatActivity {
 
     @Override

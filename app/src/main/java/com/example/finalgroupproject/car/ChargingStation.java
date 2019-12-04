@@ -2,8 +2,8 @@ package com.example.finalgroupproject.car;
 
 /**
  * This class is used to hold the data for each charging station that the server returns in its response.
+ *
  * @author Alex Hamilton
- * @since November 11, 2019
  */
 
 public class ChargingStation {
@@ -24,10 +24,6 @@ public class ChargingStation {
      * Instance field that contains a charging station's phone number.
      */
     private String phoneNum;
-    /**
-     * Instance fields that contains a charging station's database id number.
-     */
-    // private long id;
 
     /**
      * Initializing Constructor
@@ -36,17 +32,16 @@ public class ChargingStation {
      * @param longitude - charging station's longitude coordinate
      * @param phoneNum - charging station's phone number
      */
-    public ChargingStation(String title, double latitude, double longitude, String phoneNum/*, long id*/) {
+    ChargingStation(String title, double latitude, double longitude, String phoneNum/*, long id*/) {
         this.title = title;
         this.latitude = latitude;
         this.longitude = longitude;
         this.phoneNum = phoneNum;
-        // this.id = id;
     }
 
     /**
      * Getter for title instance field
-     * @return charging station's title
+     * @return - String representing the charging station's title
      */
     public String getTitle() {
         return title;
@@ -54,7 +49,7 @@ public class ChargingStation {
 
     /**
      * Setter for title instance field
-     * @param title - charging station's name
+     * @param title - String representing charging station's name
      */
     public void setTitle(String title) {
         this.title = title;
@@ -107,14 +102,6 @@ public class ChargingStation {
     public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
-
-    /**
-     * Getter for the charging station's id field (from the database)
-     * @return charging station's database id
-     */
-    // public long getId() {
-    //     return id;
-    // }
 
 }
 

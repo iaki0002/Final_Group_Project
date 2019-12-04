@@ -17,10 +17,15 @@ class CarChargerDatabaseOpenHelper extends SQLiteOpenHelper {
     static final String COL_LONGITUDE = "longitude";
     static final String COL_PHONE_NUM = "phoneNumber";
 
-    protected CarChargerDatabaseOpenHelper(Activity cx) {
+    /**
+     * Default constructor that is used to bind the Database to the Activity that is passed in.
+     * @param cx - {@link Activity}
+     */
+    CarChargerDatabaseOpenHelper(Activity cx) {
         super(cx, DATABASE_NAME, null, VERSION);
     }
 
+    @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " ("
                 + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, " + COL_LOCATION_TITLE + " TEXT, "
