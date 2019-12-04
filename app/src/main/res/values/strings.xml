@@ -68,6 +68,8 @@
 <!--    <string name="currency">Currency conversion API</string>-->
 <!--    <string name="about">About</string>-->
 <!--    <string name="invButton">hi</string>-->
+    <string name="dialogTitle">Conversion success</string>
+    <string name="dialogMessage">Your conversion was successful</string>
     <string name="currency_about">Author: Dmitrii Iakimchuk, student #040911119\nCurrency converter app, part of the final project assignment for CST2335 Mobile Graphical Interface Programming\nVersion 1.21
         \nHow to use:\n1. Choose the initial currency and enter the amount\n2. Choose the target currency\n3. Pick a date you would like to use for conversion rates\n4. Press convert button to
         perform conversion\n

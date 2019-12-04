@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome">Willkommen in der Währungsrechner App</string>
+        <string name="mainpage">Hauptseite</string>
+        <string name="car">Autoladestationsfinder</string>
+        <string name="recipe">Rezept-Engine</string>
+        <string name="news">API für Schlagzeilen</string>
+        <string name="currency">Währungsumrechnungs-API</string>
+        <string name="about">Über</string>
+        <string name="invButton">Hallo</string>
+    <string name="dialogTitle">Conversion-Erfolg</string>
+    <string name="dialogMessage">Ihre Konvertierung war erfolgreich</string>
+    <string name="currency_about">Autor: Dmitrii Iakimchuk, Schüler #040911119\nWährungsrechner-App, Teil der endgültigen Projektaufgabe für die mobile grafische Oberflächenprogrammierung CST2335\nAusführung 1.21
+        \nWie benutzt man:\n1. Wählen Sie die ursprüngliche Währung und geben Sie den Betrag ein\n2. Wählen Sie die Zielwährung\n3. Wählen Sie ein Datum aus, das Sie für die Umrechnungskurse verwenden möchten
+        \n4. Drücken Sie die Konvertierungstaste, um die Konvertierung durchzuführen\n
+        Verfügbare Währungen:\n CAD - Kanadischer Dollar\n CNY - Chinesische Yuan\n GBP - Britisches Pfund Sterling\n EUR - EU euro\n JPY - Japanische YEN\n BGN - Bulgarischer Lew\n CZK - Tschechische Krone\n DKK - Dänische Krone\n HUF - Ungarischer Forint\n
+         PLN - Polnischer Zloty\n RON - Rumänischer Leu\n SEK - Schwedische Krone\n CHF - Schweizer Franken\n ISK - Isländische Krone\n NOK - Norwegische Krone\n HRK - Kroatische Kuna\n RUB - Russischer Rubel\n TRY - Türkische Lira\n AUD - Australischer Dollar\n
+         BRL - Brasilianischer Real\n HKD - Hongkong-Dollar\n IDR - Indonesische Rupiah\n ILS - Israelischer Schekel\n USD - US-Dollar\n INR - Indische Rupie\n KRW - Südkoreanischer Won\n MXN - Mexikanischer Peso\n MYR - Malaysischer Ringgit\n NZD - Neuseeländischer Dollar\n
+         PHP - Philippinischer Peso\n SGD - Singapur-Dollar\n THB - Thailändischer Baht\n ZAR - Südafrikanischer Rand
+    </string>
+</resources>

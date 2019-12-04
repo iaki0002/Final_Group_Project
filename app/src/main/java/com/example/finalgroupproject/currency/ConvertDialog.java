@@ -9,6 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
+import com.example.finalgroupproject.R;
+
 public class ConvertDialog extends AppCompatDialogFragment {
 
     /**
@@ -18,8 +20,8 @@ public class ConvertDialog extends AppCompatDialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Convertion success")
-                .setMessage("Your conversion was successful")
+        builder.setTitle(R.string.dialogTitle)
+                .setMessage(R.string.dialogMessage)
                 .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
