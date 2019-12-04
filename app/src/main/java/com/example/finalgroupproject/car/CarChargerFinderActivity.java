@@ -44,6 +44,11 @@ import java.util.List;
 
 import static org.xmlpull.v1.XmlPullParser.START_TAG;
 
+/**
+ * @author - Alex Hamilton
+ *
+ * This class represents the primary Activity that is used in the Electric Car Charger Station Finder app.
+ */
 public class CarChargerFinderActivity extends AppCompatActivity {
 
     /**
@@ -51,13 +56,33 @@ public class CarChargerFinderActivity extends AppCompatActivity {
      * are instantiated using information from the server's response.
      */
     List<ChargingStation> stationList = new ArrayList<>();
-
+    /**
+     * Instance field that binds the ChargingStations in stationList to the GUI ListView.
+     */
     private BaseAdapter lvAdapter;
+    /**
+     * Instance field that allows the user to enter his/her latitude.
+     */
     private EditText latitudeET;
+    /**
+     * Instance field that allows the user to enter his/her longitude.
+     */
     private EditText longitudeET;
+    /**
+     * Instance field that displays the search's progress in the GUI.
+     */
     private ProgressBar progressBar;
+    /**
+     * Constant that is used to transfer data between this Activity and CarChargerPhoneFragActivity.
+     */
     private final int LV_ITEM_SELECTED_ACTIVITY = 99;
+    /**
+     * Database that is shared amongst the classes in this package.
+     */
     static SQLiteDatabase db;
+    /**
+     * Constant that is used to transfer data between this Activity and CarChargerPhoneFragActivity.
+     */
     final static int DELETED_FROM_FAVS = 111;
 
     @Override
@@ -68,7 +93,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 //        getSupportActionBar();
-
+      
         // creates and opens the database
         CarChargerDatabaseOpenHelper dbOpener = new CarChargerDatabaseOpenHelper(CarChargerFinderActivity.this);
         db = dbOpener.getWritableDatabase();
@@ -393,6 +418,11 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
     }
 
+
+    /**
+     * This method is used to load the favourited the ChargerStations from the
+     * database and display them in the ListView.
+     */
     void loadStationsFromDB() {
         stationList.clear();
         // adds all database entries from the table STATIONS into stationList
