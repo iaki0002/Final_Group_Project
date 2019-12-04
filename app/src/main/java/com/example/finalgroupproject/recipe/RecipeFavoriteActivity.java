@@ -23,14 +23,19 @@ import android.widget.Toast;
 import com.example.finalgroupproject.R;
 import com.example.finalgroupproject.currency.MainActivity_currency;
 import com.example.finalgroupproject.main.MainActivity;
+import com.example.finalgroupproject.news.NewsMainActivity;
 
 import java.util.ArrayList;
 
 import static android.app.PendingIntent.getActivity;
 
 public class RecipeFavoriteActivity extends AppCompatActivity {
-
-    private ListView listView;
+    /**
+     * Favorite Page: After the user selected his favorite recipe,
+     * it will be display on the ListView.
+     * User can select a title, to remove the recipe or go to web page
+     */
+    private ListView searchListView;
     private Recipe recipe;
     private Button removeFavoriteBtn;
     private Button gotoWebpageBtn;
@@ -59,13 +64,15 @@ public class RecipeFavoriteActivity extends AppCompatActivity {
     }
 
     private void init() {
-        listView = findViewById(R.id.food_favorite_ListView);
+        searchListView = findViewById(R.id.food_favorite_ListView);
         removeFavoriteBtn = findViewById(R.id.recipe_remove_favorite_btn);
         gotoWebpageBtn = findViewById(R.id.recipe_favorite_webview_btn);
+        //contain rows from query
         Cursor results = new RecipeDBHelper(this).getData();
         myAdapter = new MyListAdapter();
-        listView.setAdapter(myAdapter);
-        //find the column indices:
+        searchListView.setAdapter(myAdapter);
+
+        //return the index of the the column with the matching COL_ID/COL_TITLE/COL_IMAGE_URL..
         int idColIndex = results.getColumnIndex(RecipeDBHelper.COL_ID);
         int titleColIndex = results.getColumnIndex(RecipeDBHelper.COL_TITLE);
         int imageColumnIndex = results.getColumnIndex(RecipeDBHelper.COL_IMAGE_URL);
@@ -73,17 +80,24 @@ public class RecipeFavoriteActivity extends AppCompatActivity {
 
         //iterate over the results, return true if there is a next item:
         while(results.moveToNext())
-        {
+        {   long id = results.getLong(idColIndex);
+            String title = results.getString(titleColIndex);
             String imageUrl = results.getString(imageColumnIndex);
             String url = results.getString(urlColIndex);
-            String title = results.getString(titleColIndex);
-            long id = results.getLong(idColIndex);
-            //add the new Contact to the array list:
+
+            //add the new Recipe to the array list:
             foodList.add(new Recipe(id, title,imageUrl, url));
         }
 
 //Select an item and choose the button Favorite or Webpage
-        listView.setOnItemClickListener( (list, item, position, id) -> {
+        /**
+         * @param list a ListView that was clicked
+         * @param item View that was returned by getView()
+         * @param position index of the item in the list
+         * @param id database ID
+         */
+        //                                 (ListView, View, position, Long id)
+        searchListView.setOnItemClickListener( (list, item, position, id) -> {
         int selectPosition = position;
         selectID = id;
         selectTitle = foodList.get(position).getTitle();
@@ -93,6 +107,7 @@ public class RecipeFavoriteActivity extends AppCompatActivity {
 
 //Remove Favorite from the DB and listView (foodList)
         removeFavoriteBtn.setOnClickListener( clk -> {
+            //open database, and get readable/writable to database
             dbHelper = new RecipeDBHelper(this);
             db = dbHelper.getWritableDatabase();
 
@@ -159,33 +174,46 @@ public class RecipeFavoriteActivity extends AppCompatActivity {
                 startActivity(new Intent(RecipeFavoriteActivity.this, MainActivity_currency.class));
                 return true;
             case R.id.menu_news:
-                startActivity(new Intent(RecipeFavoriteActivity.this, MainActivity.class));
+                startActivity(new Intent(RecipeFavoriteActivity.this, NewsMainActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
-//list of the searched food
+//Adapter - populate the ListView with data, fill the list
     private class MyListAdapter extends BaseAdapter {
-
+        //1st call
+        //return the size of the ArrayList
         public int getCount() {
             return foodList.size();
-        } //This function tells how many foodList to show
-
+        }
+        /*
+         * returns an object (Recipe) at position
+         * call be getView()
+         * @param position, row position
+         */
         public Recipe getItem(int position) {
             return foodList.get(position);
-        }  //This returns the string at position p
-
+        }
+        /*
+         * returns database id of the item at row position
+         * @param p, the item at position
+         */
         public long getItemId(int p) {
             return p;
-        } //This returns the database id of the item at position p
-
+        }
+        /* 2nd call
+         * This specify how each row looks,
+         * creates a View object to go in a row of the ListView
+         * @param p, the item at position
+        * @param recycled, a OLD view, recycled view, reuse memory of row that have scrolled of the screen
+         */
         public View getView(int p, View recycled, ViewGroup parent) {
             View thisRow = recycled;
-
+            //load XML layout file
             thisRow = getLayoutInflater().inflate(R.layout.recipe_row_layout, null);
-
+            //look in the layout loaded in a newView
             TextView titleText = thisRow.findViewById(R.id.recipe_listview_row_title);
             titleText.setText(getItem(p).getTitle());
 

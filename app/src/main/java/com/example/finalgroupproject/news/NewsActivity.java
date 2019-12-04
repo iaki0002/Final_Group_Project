@@ -89,7 +89,7 @@ public class NewsActivity extends AppCompatActivity {
         thisApp = this;
 
         tBar = findViewById(R.id.toolbarnews);
-        setSupportActionBar(tBar);
+        //setSupportActionBar(tBar);
 
         Intent mainIntent = getIntent();
         keyword = mainIntent.getStringExtra("keyword");
