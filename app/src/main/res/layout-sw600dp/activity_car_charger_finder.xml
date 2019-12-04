@@ -6,13 +6,14 @@
     tools:context=".car.CarChargerFinderActivity">
 
 
-<!--    <include android:id="@+id/toolbar"-->
-<!--        layout="@layout/toolbar"/>-->
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <ListView
         android:layout_width="300dp"
         android:layout_height="match_parent"
         android:id="@+id/ECCSFListView"
+        android:layout_below="@id/toolbar"
         android:layout_above="@id/ECCSFGridLayout"/>
 
     <GridLayout
@@ -87,6 +88,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/eccsf_fragment_location"
-        android:layout_toEndOf="@id/ECCSFListView" />
+        android:layout_toEndOf="@id/ECCSFListView"
+        android:layout_below="@id/toolbar"/>
 
 </RelativeLayout>

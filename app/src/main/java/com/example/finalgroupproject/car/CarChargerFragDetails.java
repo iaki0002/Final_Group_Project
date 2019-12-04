@@ -56,7 +56,7 @@ public class CarChargerFragDetails extends Fragment {
         Button addToFavsBtn = result.findViewById(R.id.ECCSFFavouritesBtn);
         addToFavsBtn.setOnClickListener(favBtn -> {
             if (getDatabaseId(name, Double.parseDouble(latitude), Double.parseDouble(longitude), phoneNum) != -1) {
-                Snackbar.make(result, "Already in Favourites", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(result, "Already in Favourites", Snackbar.LENGTH_LONG).show();
                 Log.e("Is in database", getDatabaseId(name, Double.parseDouble(latitude),
                         Double.parseDouble(longitude), phoneNum) + " ");
                 return;
@@ -71,11 +71,10 @@ public class CarChargerFragDetails extends Fragment {
             long rowId = CarChargerFinderActivity.db.insert(CarChargerDatabaseOpenHelper.TABLE_NAME,
                     null, row);
 
-            Snackbar.make(result, "Added to Favourites", Snackbar.LENGTH_SHORT).show();
-
             if (isTablet) {
                 CarChargerFinderActivity parentActivity = (CarChargerFinderActivity) getActivity();
                 parentActivity.loadStationsFromDB();
+                Snackbar.make(result, "Added to Favourites", Snackbar.LENGTH_SHORT).show();
                 // removes this fragment since its underlying message has been deleted from the database
                 parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
             } else {    // user is using a phone
@@ -92,17 +91,17 @@ public class CarChargerFragDetails extends Fragment {
             if (dbId != -1) {
                 int rowsAffected = CarChargerFinderActivity.db.delete(CarChargerDatabaseOpenHelper.TABLE_NAME,
                         CarChargerDatabaseOpenHelper.COL_ID + " = ?", new String[]{String.valueOf(dbId)});
-                Snackbar.make(result, "Deleted from Favourites", Snackbar.LENGTH_SHORT).show();
                 Log.e("Rows affected", rowsAffected + " ");
                 if (isTablet) {
                     CarChargerFinderActivity parentActivity = (CarChargerFinderActivity) getActivity();
+                    Snackbar.make(result, "Deleted from Favourites", Snackbar.LENGTH_SHORT).show();
                     parentActivity.loadStationsFromDB();
                     // removes this fragment since its underlying message has been deleted from the database
                     parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
                 }   else { // user is using a phone
                     CarChargerPhoneFragActivity parentActivity = (CarChargerPhoneFragActivity) getActivity();
                     Intent backToCCFActivity = new Intent();
-                    parentActivity.setResult(Activity.RESULT_OK, backToCCFActivity);
+                    parentActivity.setResult(CarChargerFinderActivity.DELETED_FROM_FAVS, backToCCFActivity);
                     parentActivity.finish();
                 }
             } else {

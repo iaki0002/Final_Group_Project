@@ -2,6 +2,7 @@ package com.example.finalgroupproject.car;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 
 import com.example.finalgroupproject.R;
 import com.example.finalgroupproject.currency.MainActivity_currency;
+import com.example.finalgroupproject.news.NewsMainActivity;
 import com.example.finalgroupproject.recipe.MainRecipeActivity;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -56,15 +58,16 @@ public class CarChargerFinderActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private final int LV_ITEM_SELECTED_ACTIVITY = 99;
     static SQLiteDatabase db;
+    final static int DELETED_FROM_FAVS = 111;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_charger_finder);
 
-        // Toolbar toolbar = findViewById(R.id.toolbar);
-        // setSupportActionBar(toolbar);
-        // getSupportActionBar().setDisplayShowTitleEnabled(false);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar();
 
         // creates and opens the database
         CarChargerDatabaseOpenHelper dbOpener = new CarChargerDatabaseOpenHelper(CarChargerFinderActivity.this);
@@ -72,10 +75,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         ListView lv = findViewById(R.id.ECCSFListView);
         lv.setAdapter(lvAdapter = new LVAdapter());
 
-        // loadStationsFromDB();
-
-        TextView latitudeTV = findViewById(R.id.ECCSFLatitudeTV);
-        TextView longitudeTV = findViewById(R.id.ECCSFLongitudeTV);
+        findViewById(R.id.ECCSFLatitudeTV);
+        findViewById(R.id.ECCSFLongitudeTV);
 
         SharedPreferences prefs = getSharedPreferences("StoredData", MODE_PRIVATE);
         StationQuery onCreateQuery = new StationQuery();
@@ -88,14 +89,11 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         longitudeET.setText(String.valueOf(prefs.getFloat("Longitude", 0)));
 
         progressBar = findViewById(R.id.ECCSFProgressBar);
-        // progressBar.setVisibility(View.INVISIBLE);
 
         Button findBtn = findViewById(R.id.ECCSFFindButton);
         findBtn.setOnClickListener(btn -> {
             Toast.makeText(this, "Searching...",
                     Toast.LENGTH_SHORT).show();
-            // stationList.clear();
-            // lvAdapter.notifyDataSetChanged();
 
             float latitude = Float.parseFloat(latitudeET.getText().toString());
             float longitude = Float.parseFloat(longitudeET.getText().toString());
@@ -112,7 +110,6 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
                 StationQuery findQuery = new StationQuery();
                 findQuery.execute(latitude, longitude);
-                // lvAdapter.notifyDataSetChanged();
             }
         });
 
@@ -161,8 +158,8 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 new AlertDialog.Builder(this)
                         .setMessage(R.string.ECCSFAlertNAPIStr)
                         .setPositiveButton(R.string.yesStr, (dialog, id) -> {
-                            // Intent goToNewsActivity = new Intent(CarChargerFinderActivity.this, newsActivity.class);
-                            // startActivity(goToNewsActivity);
+                            Intent goToNewsActivity = new Intent(CarChargerFinderActivity.this, NewsMainActivity.class);
+                            startActivity(goToNewsActivity);
                         })
                         .setNegativeButton(R.string.noStr, null)
                         .create()
@@ -188,21 +185,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
                 break;
             case R.id.favouritesOverFlowItem:
                 Snackbar.make(latitudeET, R.string.loadFavsStr, 1_000).show();
-                // stationList.clear();
                 loadStationsFromDB();
-                // Cursor qResults = db.query(false, CarChargerDatabaseOpenHelper.TABLE_NAME,
-                //         new String[]{CarChargerDatabaseOpenHelper.COL_ID, CarChargerDatabaseOpenHelper.COL_LOCATION_TITLE,
-                //                 CarChargerDatabaseOpenHelper.COL_LATITUDE, CarChargerDatabaseOpenHelper.COL_LONGITUDE,
-                //                 CarChargerDatabaseOpenHelper.COL_PHONE_NUM},
-                //         null, null, null, null, null, null);
-                // while (qResults.moveToNext()) {
-                //     stationList.add(new ChargingStation(qResults.getString(qResults.getColumnIndex(CarChargerDatabaseOpenHelper.COL_LOCATION_TITLE)),
-                //             qResults.getDouble(qResults.getColumnIndex(CarChargerDatabaseOpenHelper.COL_LATITUDE)),
-                //             qResults.getDouble(qResults.getColumnIndex(CarChargerDatabaseOpenHelper.COL_LONGITUDE)),
-                //             qResults.getString(qResults.getColumnIndex(CarChargerDatabaseOpenHelper.COL_PHONE_NUM))));
-                // }
-                // qResults.close();
-                // lvAdapter.notifyDataSetChanged();
         }
         return true;
     }
@@ -219,20 +202,10 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == LV_ITEM_SELECTED_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                // String stationName = data.getStringExtra(CarChargerDatabaseOpenHelper.COL_LOCATION_TITLE);
-                // String lat = data.getStringExtra(CarChargerDatabaseOpenHelper.COL_LATITUDE);
-                // String lon = data.getStringExtra(CarChargerDatabaseOpenHelper.COL_LONGITUDE);
-                // String phoneNumber = data.getStringExtra(CarChargerDatabaseOpenHelper.COL_PHONE_NUM);
-                //
-                // int dbId = getDatabaseId(stationName, Double.parseDouble(lat), Double.parseDouble(lon), phoneNumber);
-                // if (dbId != -1) {
-                //     int rowsAffected = CarChargerFinderActivity.db.delete(CarChargerDatabaseOpenHelper.TABLE_NAME,
-                //             CarChargerDatabaseOpenHelper.COL_ID + " = ?", new String[]{String.valueOf(dbId)});
-                //     Snackbar.make(result, "Deleted from Favourites", Snackbar.LENGTH_SHORT).show();
-                //     Log.e("Rows affected", rowsAffected + " ");
-                // } else {
-                //     Snackbar.make(result, "Not in Favourites", Snackbar.LENGTH_SHORT).show();
-                // }
+                Snackbar.make(latitudeET, "Added to Favourites", Snackbar.LENGTH_SHORT).show();
+                loadStationsFromDB();
+            } else if (resultCode == DELETED_FROM_FAVS) {
+                Snackbar.make(latitudeET, "Deleted from Favourites", Snackbar.LENGTH_SHORT).show();
                 loadStationsFromDB();
             }
         }
@@ -291,8 +264,6 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Float... coordinates) {
-            // stationList.clear();
-            // lvAdapter.notifyDataSetChanged();
             String returnStrForDoInBackground = null;
             String urlStr /*= "https://api.openchargemap.io/v3/poi/?output=json&countrycode=CA&latitude="
                     + coordinates[0] + "&longitude=-" + coordinates[1] + "&maxresults=10"*/;
