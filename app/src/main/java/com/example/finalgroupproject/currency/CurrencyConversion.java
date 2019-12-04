@@ -12,27 +12,21 @@ public class CurrencyConversion {
     public String getDate() {
         return date;
     }
-
     public void setDate(String date) {
         this.date = date;
     }
-
     public double getBaseAmount() {
         return baseAmount;
     }
-
     public void setBaseAmount(double baseAmount) {
         this.baseAmount = baseAmount;
     }
-
     public double getBaseResult() {
         return baseResult;
     }
-
     public void setBaseResult(double baseResult) {
         this.baseResult = baseResult;
     }
-
     public CurrencyConversion(long id, String baseCurrency, String targetCurrency, String date, double baseAmount, double baseResult) {
         this.id = id;
         this.baseCurrency = baseCurrency;
