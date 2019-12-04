@@ -37,7 +37,7 @@
     <string name="recipe_dialog_title">About Me</string>
     <string name="recipe_about">
         " Author: Lai Shan Law \n Version: 0.0.2 \n Find your favorite recipe! \n
-        Instruction: Input a food name and click SEARCH button"</string>
+        Instruction: Input a food name and click the SEARCH button"</string>
     <string name="favor">My Favorite</string>
     <string name="goSearch">Go Search</string>
     <string name="searchFood">Search Food</string>
