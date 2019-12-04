@@ -68,7 +68,7 @@ public class NewsMainActivity extends AppCompatActivity {
         searchButton = (Button) findViewById(R.id.buttonsearch);
 
         tBar = findViewById(R.id.toolbar);
-        setSupportActionBar(tBar);
+       // setSupportActionBar(tBar);
         searchEdit.setText(keyword);
 
         searchButton.setOnClickListener(new View.OnClickListener() {
