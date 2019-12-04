@@ -26,7 +26,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.finalgroupproject.R;
+import com.example.finalgroupproject.car.CarChargerFinderActivity;
 import com.example.finalgroupproject.main.MainActivity;
+import com.example.finalgroupproject.news.NewsMainActivity;
+import com.example.finalgroupproject.recipe.MainRecipeActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -324,13 +327,14 @@ public class MainActivity_currency extends AppCompatActivity {
                 startActivity(new Intent(MainActivity_currency.this, MainActivity.class));
                 return true;
             case R.id.menu_car:
-                startActivity(new Intent(MainActivity_currency.this, MainActivity.class));
-//            case R.id.menu_recipe:
-//                startActivity(new Intent(MainActivity_currency.this, MainRecipeActivity.class));
-//                return true;
-//            case R.id.menu_news:
-//                startActivity(new Intent(MainActivity_currency.this, MainActivity.class));
-//                return true;
+                startActivity(new Intent(MainActivity_currency.this, CarChargerFinderActivity.class));
+                return true;
+            case R.id.menu_recipe:
+                startActivity(new Intent(MainActivity_currency.this, MainRecipeActivity.class));
+                return true;
+            case R.id.menu_news:
+                startActivity(new Intent(MainActivity_currency.this, NewsMainActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
