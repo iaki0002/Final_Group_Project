@@ -8,13 +8,37 @@ import java.util.List;
 
 class CarChargerDatabaseOpenHelper extends SQLiteOpenHelper {
 
+    /**
+     * Class constant that represents the name of the database.
+     */
     private static final String DATABASE_NAME = "CharingStationsDB";
+    /**
+     * Class constant that represents the version number of the database.
+     */
     private static final int VERSION = 1;
+    /**
+     * Class constant that represents the name of the table in the database.
+     */
     static final String TABLE_NAME = "STATIONS";
+    /**
+     * Class constant that represents the id column in the database.
+     */
     static final String COL_ID = "id";
+    /**
+     * Class constant that represents the ChargerStation's name column in the database.
+     */
     static final String COL_LOCATION_TITLE = "locationTitle";
+    /**
+     * Class constant that represents the ChargerStation's latitude column in the database.
+     */
     static final String COL_LATITUDE = "latitude";
+    /**
+     * Class constant that represents the ChargerStation's longitude column in the database.
+     */
     static final String COL_LONGITUDE = "longitude";
+    /**
+     * Class constant that represents the ChargerStation's phone number column in the database.
+     */
     static final String COL_PHONE_NUM = "phoneNumber";
 
     /**

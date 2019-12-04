@@ -29,9 +29,15 @@
     <string name="ECCSFAlertCCStr">是否要打開貨幣轉換器？</string>
     <string name="ECCSFAlertRSEStr">是否要打開食譜搜索引擎？</string>
     <string name="ECCSFAlertNAPIStr">想要打開新聞API?</string>
-    <string name="loadFavsStr">Loading 正在加載收藏夾</string>
+    <string name="loadFavsStr">正在加載收藏夾</string>
     <string name="ECCSFAboutInfoStr">Alex Hamilton的電動汽車充電站搜尋器（版本1）。
         \n輸入您的經度和緯度以找到最近的充電器站。</string>
+    <string name="delFavsStr">從收藏夾中刪除</string>
+    <string name="notFavsStr">不喜歡</string>
+    <string name="addFavsStr">添加到收藏夾</string>
+    <string name="alreadyFavsStr">已收藏</string>
+    <string name="loadDirectionsStr">裝載方向&#8230;</string>
+    <string name="searchingStr">正在搜尋&#8230;</string>
 
     <!-- For Recipe Engine : Lai Shan Law-->
     <string name="recipe_dialog_title">關於我</string>
@@ -56,12 +62,26 @@
 
     <!-- For Currency conversion API : Dmitrii Iakimchuk-->
     <string name="welcome">歡迎使用貨幣轉換器應用程序</string>
-    <!--    <string name="app_name">Currency Converter</string>-->
-    <!--    <string name="mainpage">Main page</string>-->
-    <!--    <string name="car">Car charging station finder</string>-->
-    <!--    <string name="recipe">Recipe engine</string>-->
-    <!--    <string name="news">News headlines API</string>-->
-    <!--    <string name="about">About</string>-->
+    <string name="currency_about">作者: Dmitrii Iakimchuk, 學生 #040911119\n貨幣轉換器應用, CST2335移動圖形界面編程最終項目分配的一部分\n版 1.21
+        \n如何使用:\n1. 選擇初始貨幣並輸入金額\n2.
+選擇目標貨幣\n3. 選擇一個您想用於轉化率的日期\n4. 按轉換按鈕到
+        執行轉換\n
+    \n可用貨幣:\n CAD - 加元\n CNY - 人民幣\n GBP -
+英鎊\n EUR - 歐盟歐元\n JPY - 日圓\n BGN - 保加利亞列弗\n CZK - 捷克克朗\n DKK - 丹麥克朗\n HUF -
+匈牙利福林\n
+        PLN - 波蘭茲羅提\n RON - 羅馬尼亞列伊\n SEK -
+瑞典克朗\n CHF - 瑞士法郎\n ISK - 冰島克朗\n NOK - 挪威克朗\n HRK - 克羅地亞庫納\n RUB - 俄羅斯盧布\n TRY - 土耳其里拉\n AUD - 澳元\n
+        BRL - 巴西雷亞爾\n HKD -
+港元\n IDR - 印尼盾\n ILS - 以色列謝克爾\n USD -
+美元\n INR - 印度盧比\n KRW - 韓元\n MXN - 墨西哥比索\n MYR - 馬來西亞林吉特\n NZD - 新西蘭元\n
+        PHP - 菲律賓比索\n SGD - 新加坡元\n THB - 泰銖\n ZAR - 南非蘭特
+    </string>
+    <!--    <string name="app_name">貨幣換算</string>-->
+    <!--    <string name="mainpage">主頁</string>-->
+    <!--    <string name="car">汽車充電站查找器</string>-->
+    <!--    <string name="recipe">食譜</string>-->
+    <!--    <string name="news">新聞頭條 API</string>-->
+    <!--    <string name="about">關於</string>-->
 
     <!-- News headlines API : David Lee-->
     <string name="news_app_name">最終項目 DavidLee</string>

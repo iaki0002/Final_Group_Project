@@ -117,7 +117,7 @@ public class CarChargerFinderActivity extends AppCompatActivity {
 
         Button findBtn = findViewById(R.id.ECCSFFindButton);
         findBtn.setOnClickListener(btn -> {
-            Toast.makeText(this, "Searching...",
+            Toast.makeText(this, R.string.searchingStr,
                     Toast.LENGTH_SHORT).show();
 
             float latitude = Float.parseFloat(latitudeET.getText().toString());
@@ -227,10 +227,10 @@ public class CarChargerFinderActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == LV_ITEM_SELECTED_ACTIVITY) {
             if (resultCode == RESULT_OK) {
-                Snackbar.make(latitudeET, "Added to Favourites", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(latitudeET, R.string.alreadyFavsStr, Snackbar.LENGTH_SHORT).show();
                 loadStationsFromDB();
             } else if (resultCode == DELETED_FROM_FAVS) {
-                Snackbar.make(latitudeET, "Deleted from Favourites", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(latitudeET, R.string.delFavsStr, Snackbar.LENGTH_SHORT).show();
                 loadStationsFromDB();
             }
         }

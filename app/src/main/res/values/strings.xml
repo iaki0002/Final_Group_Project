@@ -30,6 +30,12 @@
     <string name="ECCSFAlertRSEStr">Do want to open the Recipe Search Engine?</string>
     <string name="ECCSFAlertNAPIStr">Do want to open the News API?</string>
     <string name="loadFavsStr">Loading favourites</string>
+    <string name="delFavsStr">Deleted from Favourites</string>
+    <string name="notFavsStr">Not in Favourites</string>
+    <string name="addFavsStr">Added to Favourites</string>
+    <string name="alreadyFavsStr">Already in Favourites</string>
+    <string name="loadDirectionsStr">Loading directions&#8230;</string>
+    <string name="searchingStr">Searching&#8230;</string>
     <string name="ECCSFAboutInfoStr">Electric Car Charger Station Finder (Version 1) by Alex Hamilton.
         \nInput your latitude and longitude to find the closest charger station.</string>
 

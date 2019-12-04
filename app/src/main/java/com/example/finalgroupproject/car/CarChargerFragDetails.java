@@ -56,7 +56,7 @@ public class CarChargerFragDetails extends Fragment {
 
         Button directionsBtn = result.findViewById(R.id.ECCSFDirectionsBtn);
         directionsBtn.setOnClickListener(dirBtn -> {
-            Toast.makeText(getContext(), "Loading directions...", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), R.string.loadDirectionsStr, Toast.LENGTH_LONG).show();
             Uri googleMapsUri = Uri.parse("google.navigation:q=" + latitude + "," + longitude);
             Intent googleMapsIntent = new Intent(Intent.ACTION_VIEW, googleMapsUri);
             googleMapsIntent.setPackage("com.google.android.apps.maps");
@@ -66,7 +66,7 @@ public class CarChargerFragDetails extends Fragment {
         Button addToFavsBtn = result.findViewById(R.id.ECCSFFavouritesBtn);
         addToFavsBtn.setOnClickListener(favBtn -> {
             if (getDatabaseId(name, Double.parseDouble(latitude), Double.parseDouble(longitude), phoneNum) != -1) {
-                Snackbar.make(result, "Already in Favourites", Snackbar.LENGTH_LONG).show();
+                Snackbar.make(result, R.string.alreadyFavsStr, Snackbar.LENGTH_LONG).show();
                 Log.e("Is in database", getDatabaseId(name, Double.parseDouble(latitude),
                         Double.parseDouble(longitude), phoneNum) + " ");
                 return;
@@ -84,7 +84,7 @@ public class CarChargerFragDetails extends Fragment {
             if (isTablet) {
                 CarChargerFinderActivity parentActivity = (CarChargerFinderActivity) getActivity();
                 parentActivity.loadStationsFromDB();
-                Snackbar.make(result, "Added to Favourites", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(result, R.string.addFavsStr, Snackbar.LENGTH_SHORT).show();
                 // removes this fragment since its underlying message has been deleted from the database
                 parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
             } else {    // user is using a phone
@@ -104,7 +104,7 @@ public class CarChargerFragDetails extends Fragment {
                 Log.e("Rows affected", rowsAffected + " ");
                 if (isTablet) {
                     CarChargerFinderActivity parentActivity = (CarChargerFinderActivity) getActivity();
-                    Snackbar.make(result, "Deleted from Favourites", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(result, R.string.delFavsStr, Snackbar.LENGTH_SHORT).show();
                     parentActivity.loadStationsFromDB();
                     // removes this fragment since its underlying message has been deleted from the database
                     parentActivity.getSupportFragmentManager().beginTransaction().remove(this).commit();
@@ -115,7 +115,7 @@ public class CarChargerFragDetails extends Fragment {
                     parentActivity.finish();
                 }
             } else {
-                Snackbar.make(result, "Not in Favourites", Snackbar.LENGTH_SHORT).show();
+                Snackbar.make(result, R.string.notFavsStr, Snackbar.LENGTH_SHORT).show();
             }
         });
 

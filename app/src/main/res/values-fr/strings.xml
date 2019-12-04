@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Main-->
     <string name="app_name">CST2335</string>
@@ -7,38 +6,38 @@
     <string name="recipe">Recipe engine</string>
     <string name="news">News headlines API</string>
     <string name="currency">Currency conversion API</string>
-    <string name="about">About</string>
+    <string name="about">Sur</string>
     <string name="invButton">hi</string>
 
 
     <!-- For Car charging station finder : Alex Hamilton-->
-    <string name="ECCSFHelpStr">Help</string>
-    <string name="ECCSFFindStr">Find</string>
+    <string name="ECCSFHelpStr">Aide</string>
+    <string name="ECCSFFindStr">Trouvez</string>
     <string name="ECCSFLatitudeStr">Latitude:</string>
     <string name="ECCSFLongitudeStr">Longitude:</string>
-    <string name="ECCSFLongitudeHintStr">Enter longitude&#8230;</string>
-    <string name="ECCSFLatitudeHintStr">Enter latitude&#8230;</string>
-    <string name="ECCSFlvTitleStr">Location Title:</string>
-    <string name="ECCSFlvPhoneStr">Phone Number:</string>
-    <string name="ECCSFlvDirectionsStr">Load Directions</string>
-    <string name="ECCSFlvFavouritesStr">Add to Favourites</string>
-    <string name="ECCSFDeleteStr">Delete From Favourites</string>
-    <string name="ECCSFCurrencyConverterStr">Currency Converter</string>
-    <string name="ECCSFFavouritesStr">Favourites</string>
-    <string name="yesStr">Yes</string>
-    <string name="noStr">No</string>
-    <string name="ECCSFAlertCCStr">Do want to open the Currency Converter?</string>
-    <string name="ECCSFAlertRSEStr">Do want to open the Recipe Search Engine?</string>
-    <string name="ECCSFAlertNAPIStr">Do want to open the News API?</string>
-    <string name="loadFavsStr">Loading favourites</string>
-    <string name="delFavsStr">Deleted from Favourites</string>
-    <string name="notFavsStr">Not in Favourites</string>
-    <string name="addFavsStr">Added to Favourites</string>
-    <string name="alreadyFavsStr">Already in Favourites</string>
-    <string name="loadDirectionsStr">Loading directions&#8230;</string>
-    <string name="searchingStr">Searching&#8230;</string>
-    <string name="ECCSFAboutInfoStr">Electric Car Charger Station Finder (Version 1) by Alex Hamilton.
-        \nInput your latitude and longitude to find the closest charger station.</string>
+    <string name="ECCSFLongitudeHintStr">Entrez longitude&#8230;</string>
+    <string name="ECCSFLatitudeHintStr">Entrez latitude&#8230;</string>
+    <string name="ECCSFlvTitleStr">Titre de L\'Emplacement:</string>
+    <string name="ECCSFlvPhoneStr">Numéro de téléphone:</string>
+    <string name="ECCSFlvDirectionsStr">Directions de Chargement</string>
+    <string name="ECCSFlvFavouritesStr">Ajouter aux Favoris</string>
+    <string name="ECCSFDeleteStr">Supprimer des Favoris</string>
+    <string name="ECCSFCurrencyConverterStr">Convertisseur de Devises</string>
+    <string name="ECCSFFavouritesStr">Favoris</string>
+    <string name="yesStr">Oui</string>
+    <string name="noStr">Non</string>
+    <string name="ECCSFAlertCCStr">Voulez-vous ouvrir le Convertisseur de Devises?</string>
+    <string name="ECCSFAlertRSEStr">Voulez-vous ouvrir le moteur de Recherche de Recettes?</string>
+    <string name="ECCSFAlertNAPIStr">Voulez-vous ouvrir l\'API News?</string>
+    <string name="loadFavsStr">Chargement des favoris</string>
+    <string name="delFavsStr">Supprimé des Favoris</string>
+    <string name="notFavsStr">Pas dans les Favoris</string>
+    <string name="addFavsStr">Ajouté aux Favoris</string>
+    <string name="searchingStr">Recherche&#8230;</string>
+    <string name="alreadyFavsStr">Déjà dans les Favoris</string>
+    <string name="loadDirectionsStr">Directions de Chargement&#8230;</string>
+    <string name="ECCSFAboutInfoStr">Station de Chargeur de Voiture Électrique Chercheuse (Version 1) par Alex Hamilton.
+        \nInscrivez votre latitude et votre longitude pour trouver la station de charge la plus proche.</string>
 
     <!-- For Recipe Engine : Lai Shan Law-->
     <string name="recipe_dialog_title">About Me</string>
@@ -60,18 +59,21 @@
     <string name="recipt_open_webpage">Open Web Page</string>
     <string name="recipt_remove_favorite"> Remove Favorite</string>
 
+
+
     <!-- For Recipe Engine FragmentFavor-->
     <string name="intent_message">intent_message</string>
 
 
     <!-- For Currency conversion API : Dmitrii Iakimchuk-->
     <string name="welcome">Welcome to the Currency Converter app</string>
-    <!--    <string name="app_name">Currency Converter</string>-->
     <!--    <string name="mainpage">Main page</string>-->
     <!--    <string name="car">Car charging station finder</string>-->
     <!--    <string name="recipe">Recipe engine</string>-->
     <!--    <string name="news">News headlines API</string>-->
+    <!--    <string name="currency">Currency conversion API</string>-->
     <!--    <string name="about">About</string>-->
+    <!--    <string name="invButton">hi</string>-->
     <string name="currency_about">Author: Dmitrii Iakimchuk, student #040911119\nCurrency converter app, part of the final project assignment for CST2335 Mobile Graphical Interface Programming\nVersion 1.21
         \nHow to use:\n1. Choose the initial currency and enter the amount\n2. Choose the target currency\n3. Pick a date you would like to use for conversion rates\n4. Press convert button to
         perform conversion\n
@@ -83,21 +85,22 @@
 
     <!-- News headlines API : David Lee-->
     <string name="news_app_name">FinalProject_DavidLee</string>
-    <string name="webbuttontext">웹링크</string>
-    <string name="savebuttontext">세이브</string>
-    <string name="welcometext">News API에 오신것을 환영합니다</string>
-    <string name="editText">검색어를 입력하시오</string>
-    <string name="buttonsearchtext">검색!</string>
-    <string name="copyright">API 키 출처: newsapi.org</string>
-    <string name="editsavebuttontext">세이브리스트</string>
-    <string name="savedarticletext">빈 공간</string>
-    <string name="deletesavedbutton">삭제</string>
-    <string name="alerttext">키워드를 입력하시오</string>
-    <string name="alertbutton">메인메뉴</string>
-    <string name="help">도움말</string>
-    <string name="author">제작자: David Lee</string>
-    <string name="version">버전 1.0</string>
-    <string name="instructiontitle">안내문</string>
-    <string name="instructiondesc">키워드를 입력하고 검색버튼을 누르면 기사 목록이 출력된다. 목록에서 기사를 클릭하면 할 수 있는 액션들이 뜬다. 세이브리스트에서 기사를 클릭하면 할 수 있는 액션들이 뜬다.</string>
-    <string name="exit">종료</string>
+    <string name="webbuttontext">Web Link</string>
+    <string name="savebuttontext">Save Article</string>
+    <string name="welcometext">Welcome to News API</string>
+    <string name="editText">Type in your article keyword</string>
+    <string name="buttonsearchtext">Search!</string>
+    <string name="copyright">The API key is provided by newsapi.org</string>
+    <string name="editsavebuttontext">Save List</string>
+    <string name="savedarticletext">Blank Article</string>
+    <string name="deletesavedbutton">Delete</string>
+    <string name="alerttext">You must type a keyword</string>
+    <string name="alertbutton">Back to Main Menu</string>
+    <string name="help">INSTRUCTION</string>
+    <string name="author">Author: David Lee</string>
+    <string name="version">Version 1.0</string>
+    <string name="instructiontitle">INSTRUCTION</string>
+    <string name="instructiondesc">Typing in the keyword and click the search button will show the list of articles. Click on an article will show the actions that a user can choose from. Clicking on a row on the saved article list will show the actions that a user can choose from.</string>
+    <string name="exit">Exit</string>
+
 </resources>
