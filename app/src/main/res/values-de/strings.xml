@@ -8,6 +8,8 @@
         <string name="currency">Währungsumrechnungs-API</string>
         <string name="about">Über</string>
         <string name="invButton">Hallo</string>
+    <string name="dialogTitle">Conversion-Erfolg</string>
+    <string name="dialogMessage">Ihre Konvertierung war erfolgreich</string>
     <string name="currency_about">Autor: Dmitrii Iakimchuk, Schüler #040911119\nWährungsrechner-App, Teil der endgültigen Projektaufgabe für die mobile grafische Oberflächenprogrammierung CST2335\nAusführung 1.21
         \nWie benutzt man:\n1. Wählen Sie die ursprüngliche Währung und geben Sie den Betrag ein\n2. Wählen Sie die Zielwährung\n3. Wählen Sie ein Datum aus, das Sie für die Umrechnungskurse verwenden möchten
         \n4. Drücken Sie die Konvertierungstaste, um die Konvertierung durchzuführen\n
