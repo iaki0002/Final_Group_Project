@@ -12,15 +12,20 @@
     tools:context=".recipe.RecipeDetailFragment">
 
 
+    <!--      android:text="Close"
+        android:background="@drawable/recipe_round_button"-->
+
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/recipe_detail_fragment_close_btn"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:text="Close"
-        android:background="@drawable/recipe_round_button"
-        android:id="@+id/recipe_detail_fragment_close_btn"/>
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/ic_close" />
 
     <ImageView
         android:layout_width="180dp"

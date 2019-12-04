@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.example.finalgroupproject.R;
 import com.example.finalgroupproject.currency.MainActivity_currency;
 import com.example.finalgroupproject.main.MainActivity;
+import com.example.finalgroupproject.news.NewsMainActivity;
 
 import java.util.ArrayList;
 
@@ -159,7 +160,7 @@ public class RecipeFavoriteActivity extends AppCompatActivity {
                 startActivity(new Intent(RecipeFavoriteActivity.this, MainActivity_currency.class));
                 return true;
             case R.id.menu_news:
-                startActivity(new Intent(RecipeFavoriteActivity.this, MainActivity.class));
+                startActivity(new Intent(RecipeFavoriteActivity.this, NewsMainActivity.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
